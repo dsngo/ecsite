@@ -9,7 +9,7 @@ export const App: React.SFC = () => (
     <Router>
             <MuiThemeProvider>
                 <div>
-                    <Navbar showSearch />
+                    <Navbar />
                     <Switch>
                         <Route exact path="/" component={Landing} />
                         <Route component={FoF} />

@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import TextField from "material-ui/TextField";
 import AppBar from "material-ui/AppBar";
 import Paper from "material-ui/Paper";
-import LoginPopup from "./LoginPopup";
-import SignupPopup from "./SignupPopup";
+// import LoginPopup from "./LoginPopup";
+// import SignupPopup from "./SignupPopup";
 import ShoppingCartIcon from "material-ui/svg-icons/action/shopping-cart";
 import { grey500 } from "material-ui/styles/colors";
 
@@ -27,8 +27,8 @@ const Navbar: React.SFC<INavbar> = props => (
       <Link to="/account/info">`Hi, ${props.username}`</Link>
     ) : (
       <div>
-        <LoginPopup />
-        <SignupPopup />
+        {/* <LoginPopup />
+        <SignupPopup /> */}
       </div>
     )}
     <Link to="/checkout/preview">
