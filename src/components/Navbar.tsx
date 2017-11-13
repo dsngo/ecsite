@@ -44,4 +44,4 @@ const mapStateToProps = (state: any) => ({
   cartNumberOfItems: state.cartNumberOfItems,
 });
 
-export default connect()(Navbar);
+export default connect(mapStateToProps)(Navbar);
