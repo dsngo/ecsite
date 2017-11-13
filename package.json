@@ -11,6 +11,7 @@
     "g:commit": "git add . & git commit -m ",
     "g:push": "git pull & git push origin son-dev",
     "g:pull": "git pull origin son-dev",
+    "g:force": "git add . & git commit -am \"updates\" & git pull & git push",
     "dev": "webpack-dev-server"
   },
   "dependencies": {
