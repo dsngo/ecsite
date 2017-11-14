@@ -8,6 +8,7 @@ import Paper from "material-ui/Paper";
 // import SignupPopup from "./SignupPopup";
 import ShoppingCartIcon from "material-ui/svg-icons/action/shopping-cart";
 import { grey500 } from "material-ui/styles/colors";
+import FlatButton from "material-ui/FlatButton";
 
 interface INavbar {
   isLogin: boolean;
@@ -17,11 +18,22 @@ interface INavbar {
 
 const Navbar: React.SFC<INavbar> = props => (
   <Paper>
-    <Link to="/collections/womens-all">Women</Link>
-    <Link to="/collections/mens-all">Men</Link>
-    <Link to="/visit-us">Visit Us</Link>
-    <Link to="/factories">Factory</Link>
-    <Link to="/about">About</Link>
+    <Link to="/collections/womens-all">
+      <FlatButton label="Women" />
+    </Link>
+    <Link to="/collections/mens-all">
+    <FlatButton label="Men" />
+    </Link>
+    <Link to="/visit-us">
+    <FlatButton label="Visit us" />
+    </Link>
+    <Link to="/factories">
+    <FlatButton label="Factories" />
+    </Link>
+    <Link to="/about">
+    <FlatButton label="About" />
+      
+    </Link>
     <Link to="/">ECSITE</Link>
     {props.isLogin ? (
       <Link to="/account/info">`Hi, ${props.username}`</Link>
@@ -31,10 +43,10 @@ const Navbar: React.SFC<INavbar> = props => (
         <SignupPopup /> */}
       </div>
     )}
-    <Link to="/checkout/preview">
+    {/* <Link to="/checkout/preview">
       <ShoppingCartIcon style={{marginRight: 12}}color={grey500} />
       {props.cartNumberOfItems && `${props.cartNumberOfItems} ${props.cartNumberOfItems < 2 ? "item" : "items"}`}
-    </Link>
+    </Link> */}
   </Paper>
 );
 
