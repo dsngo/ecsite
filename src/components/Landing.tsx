@@ -9,31 +9,34 @@ import { Carousel } from "react-responsive-carousel";
 interface ILanding {}
 
 const featuredImg1 = {
-  background: "url('https://everlane-2.imgix.net/i/88336c01_608a.jpg?q=65&dpr=1.5')",
+  background:
+    "url('https://everlane-2.imgix.net/i/88336c01_608a.jpg?q=65&dpr=1.5')",
   backgroundSize: "contain",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
-  height: "400px",
+  height: "400px"
 };
 const featuredImg2 = {
-  background: "url('https://everlane-2.imgix.net/i/81b3920b_d927.jpg?q=65&dpr=1.5')",
+  background:
+    "url('https://everlane-2.imgix.net/i/81b3920b_d927.jpg?q=65&dpr=1.5')",
   backgroundSize: "contain",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
-  height: "400px",
+  height: "400px"
 };
 const featuredImg3 = {
-  background: "url('https://everlane-2.imgix.net/i/e9217a3d_452f.jpg?q=65&dpr=1.5')",
+  background:
+    "url('https://everlane-2.imgix.net/i/e9217a3d_452f.jpg?q=65&dpr=1.5')",
   backgroundSize: "contain",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
-  height: "400px",
+  height: "400px"
 };
 
 const Landing: React.SFC<ILanding> = props => (
   <div className="homepage">
     <div className="carosel">
-      <Carousel showArrows={false} showStatus={false} showThumbs={false}>
+      <Carousel showArrows={true} showStatus={false} showThumbs={false} infiniteLoop={true}>
         <div>
           <img src="https://everlane-2.imgix.net/i/ce913f1d_52f4.jpg" />
         </div>
@@ -45,23 +48,17 @@ const Landing: React.SFC<ILanding> = props => (
     <div className="featured-collection-container row">
       <div className="featured-collection col-xs-4">
         <div style={featuredImg1} className="thumbnail">
-            <div className="title">
-            The Denim Shop
-            </div>      
+          <div className="title">The Denim Shop</div>
         </div>
       </div>
       <div className="featured-collection col-xs-4">
         <div style={featuredImg2} className="thumbnail">
-        <div className="title">
-            Our Denim Factory
-            </div>  
+          <div className="title">Our Denim Factory</div>
         </div>
       </div>
       <div className="featured-collection col-xs-4">
         <div style={featuredImg3} className="thumbnail">
-        <div className="title">
-            The Campaign
-            </div>  
+          <div className="title">The Campaign</div>
         </div>
       </div>
     </div>

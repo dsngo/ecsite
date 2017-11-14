@@ -6,6 +6,7 @@ import { store } from "./redux/store";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Navbar from "./Navbar";
 import Landing from "./Landing";
+import Footer from "./Footer";
 
 export const App: React.SFC = () => (
   <Router>
@@ -16,6 +17,7 @@ export const App: React.SFC = () => (
           <Route exact path="/" component={Landing} />
           <Route component={FoF} />
         </Switch>
+        <Footer />
       </MuiThemeProvider>
     </Provider>
   </Router>
