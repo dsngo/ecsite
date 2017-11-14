@@ -53,7 +53,7 @@ const Navbar: React.SFC<INavbar> = props => (
 const mapStateToProps = (state: any) => ({
   isLogin: state.isLogin,
   username: state.username,
-  cartNumberOfItems: state.cartNumberOfItems,
+  cartNumberOfItems: state.cartItems.length,
 });
 
 export default connect(mapStateToProps)(Navbar);
