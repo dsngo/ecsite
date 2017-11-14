@@ -21,6 +21,19 @@
         .featured-collection {
             padding-left: 10px;
             padding-right: 10px;
+            cursor: pointer;
+            position: relative;
+            .thumbnail {
+                position: relative;
+            }
+            .title {
+                position: absolute;
+                text-align: center;
+                color: white;
+                font-size: 18px;
+                top: 50%;
+                width: 100%;
+            }
         }
     }
 } 
