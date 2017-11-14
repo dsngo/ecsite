@@ -15,14 +15,22 @@
     "dev": "webpack-dev-server"
   },
   "dependencies": {
+    "@types/react-slick": "^0.14.1",
     "axios": "^0.17.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
     "material-ui": "^0.19.4",
+    "node-sass": "^4.6.1",
+    "nuka-carousel": "^3.0.0",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
     "react-redux": "^5.0.6",
+    "react-responsive-carousel": "^3.1.28",
     "react-router-dom": "^4.2.2",
+    "react-slick": "^0.15.4",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
