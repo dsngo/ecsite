@@ -8,11 +8,35 @@ import { Carousel } from "react-responsive-carousel";
 
 interface ILanding {}
 
-const Landing: React.SFC<ILanding> = props => (
-  <div>
-    <div className="carosel">
-      <Carousel showArrows={ false } showStatus={ false } showThumbs={ false } >
+const featuredImg1 = {
+  background:
+    "url('https://everlane-2.imgix.net/i/88336c01_608a.jpg?q=65&dpr=1.5')",
+  backgroundSize: "contain",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  height: "400px"
+};
+const featuredImg2 = {
+  background:
+    "url('https://everlane-2.imgix.net/i/81b3920b_d927.jpg?q=65&dpr=1.5')",
+  backgroundSize: "contain",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  height: "400px"
+};
+const featuredImg3 = {
+  background:
+    "url('https://everlane-2.imgix.net/i/e9217a3d_452f.jpg?q=65&dpr=1.5')",
+  backgroundSize: "contain",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  height: "400px"
+};
 
+const Landing: React.SFC<ILanding> = props => (
+  <div className="homepage">
+    <div className="carosel">
+      <Carousel showArrows={false} showStatus={false} showThumbs={false}>
         <div>
           <img src="https://everlane-2.imgix.net/i/ce913f1d_52f4.jpg" />
         </div>
@@ -20,6 +44,17 @@ const Landing: React.SFC<ILanding> = props => (
           <img src="https://everlane-2.imgix.net/i/3c94c4f9_0be5.jpg" />
         </div>
       </Carousel>
+    </div>
+    <div className="featured-collection-container row">
+      <div className="featured-collection col-xs-4">
+        <div style={featuredImg1} />
+      </div>
+      <div className="featured-collection col-xs-4">
+        <div style={featuredImg2} />
+      </div>
+      <div className="featured-collection col-xs-4">
+        <div style={featuredImg3} />
+      </div>
     </div>
   </div>
 );
