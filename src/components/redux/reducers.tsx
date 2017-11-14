@@ -3,7 +3,10 @@ import { combineReducers } from "redux";
 // const DEFAULT_STATE = {
 //   isLogin: boolean;
 //   username: string;
-//   cartNumberOfItems: number;
+//   userId: string;
+//   
+//   apiStatus: string:
+//   cartItems: [];
 // }
 const isLogin = (state = false, action: any) =>
   (action.type === "LOGIN_SUCCESS" && true) ||
