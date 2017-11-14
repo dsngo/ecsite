@@ -5,7 +5,7 @@ import TextField from "material-ui/TextField";
 import AppBar from "material-ui/AppBar";
 import Paper from "material-ui/Paper";
 // import LoginPopup from "./LoginPopup";
-// import SignupPopup from "./SignupPopup";
+import SignupPopup from "./SignupPopup";
 import ShoppingCartIcon from "material-ui/svg-icons/action/shopping-cart";
 import { grey500 } from "material-ui/styles/colors";
 import FlatButton from "material-ui/FlatButton";
