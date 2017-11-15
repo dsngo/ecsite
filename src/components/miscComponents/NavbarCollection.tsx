@@ -7,13 +7,12 @@ import Paper from "material-ui/Paper";
 // import LoginPopup from "./LoginPopup";
 import { grey500 } from "material-ui/styles/colors";
 import FlatButton from "material-ui/FlatButton";
-import ReactHover from "react-hover";
 
-interface INavbarChild {
+interface INavbarCollection {
   data: any[];
 }
 
-class NavbarChild extends React.Component<INavbarChild> {
+class NavbarCollection extends React.Component<INavbarCollection> {
   state = {
   };
   constructor(props: any) {
@@ -36,4 +35,4 @@ class NavbarChild extends React.Component<INavbarChild> {
   }
 }
 
-export default NavbarChild;
+export default NavbarCollection;

@@ -6,11 +6,10 @@ import AppBar from "material-ui/AppBar";
 import Paper from "material-ui/Paper";
 // import LoginPopup from "./LoginPopup";
 import SignupPopup from "./SignupPopup";
-import NavbarChild from "./NavbarChild";
+import NavbarCollection from "./miscComponents/NavbarCollection";
 import ShoppingCartIcon from "material-ui/svg-icons/action/shopping-cart";
 import { grey500 } from "material-ui/styles/colors";
 import FlatButton from "material-ui/FlatButton";
-import ReactHover from "react-hover";
 
 interface INavbar {
   isLogin: boolean;
@@ -99,7 +98,7 @@ class Navbar extends React.Component<INavbar> {
           {}
         </Paper>
         {this.state.openNavbarChild ? (
-          <NavbarChild
+          <NavbarCollection
             data={
               this.state.navbarCurrentCategory === "women"
                 ? navbarWomen
