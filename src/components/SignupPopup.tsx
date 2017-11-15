@@ -1,27 +1,20 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 import TextField from "material-ui/TextField";
 import Paper from "material-ui/Paper";
-import { grey500 } from "material-ui/styles/colors";
-import FlatButton from "material-ui/FlatButton";
+import { grey800 } from "material-ui/styles/colors";
 import Checkbox from "material-ui/Checkbox";
 import Subheader from "material-ui/Subheader";
 import { List, ListItem } from "material-ui/List";
-import { createNewUser } from "./redux/actionCreators";
+import PopupButton from "./miscComponents/PopupButtons";
 
-interface ISignupPopup {
-  submitToDatabase: () => any;
-}
-
-class SignupPopup extends React.Component<ISignupPopup> {
+class SignupPopup extends React.Component<{},{}> {
   state = {
-    username: "",
+    email: "",
     password: "",
+    fullname: "",
     preferStyle: { men: false, women: false, both: false },
   };
-  handleChangeUsername = (username: string) => this.setState(prevState => ({ ...prevState, username }));
-  handleChangePassword = (password: string) => this.setState(prevState => ({ ...prevState, password }));
+  handleChangeUserInfo = (key: string, info: string) => this.setState(prevState => ({ ...prevState, [key]: info }));
   handleChangePreferStyle = (style: string) =>
     this.setState((prevState: any) => ({
       ...prevState,
@@ -29,47 +22,69 @@ class SignupPopup extends React.Component<ISignupPopup> {
     }));
   render() {
     const {
-      handleChangeUsername,
-      handleChangePassword,
+      handleChangeUserInfo,
       handleChangePreferStyle,
-      props: { submitToDatabase },
-      state: { username, password, preferStyle },
+      state: { email, password, fullname, preferStyle },
     } = this;
     return (
       <Paper>
         <List>
-          <Subheader>Email Address</Subheader>
-          <TextField hintText="Please enter your email address." floatingLabelText="Email Address" />
-          <Subheader>Full Name</Subheader>
-          <TextField hintText="Please enter your full name." floatingLabelText="Full Name" />
+          <TextField
+            value={email}
+            onChange={(e: any) => handleChangeUserInfo("email", e.target.value)}
+            hintText="Please enter your email address."
+            floatingLabelText="Email Address"
+          />
           <br />
-          <Subheader>Password</Subheader>
-          <TextField hintText="Please enter your password." floatingLabelText="Password" type="password" />
+          <TextField
+            value={fullname}
+            onChange={(e: any) => handleChangeUserInfo("fullname", e.target.value)}
+            hintText="Please enter your full name."
+            floatingLabelText="Full Name"
+          />
+          <br />
+          <TextField
+            value={password}
+            onChange={(e: any) => handleChangeUserInfo("password", e.target.value)}
+            hintText="Please enter your password."
+            floatingLabelText="Password"
+            type="password"
+          />
           <br />
         </List>
         <List>
           <Subheader>What styles are you interested in?</Subheader>
           <ListItem
             primaryText="Women"
-            leftCheckbox={<Checkbox checked={preferStyle.women} onCheck={() => handleChangePreferStyle("women")} />}
+            leftCheckbox={
+              <Checkbox
+                iconStyle={{ fill: grey800 }}
+                checked={preferStyle.women}
+                onCheck={() => handleChangePreferStyle("women")}
+              />
+            }
           />
           <ListItem
             primaryText="Men"
-            leftCheckbox={<Checkbox checked={preferStyle.men} onCheck={() => handleChangePreferStyle("Men")} />}
-          />{" "}
+            leftCheckbox={
+              <Checkbox iconStyle={{ fill: grey800 }} checked={preferStyle.men} onCheck={() => handleChangePreferStyle("men")} />
+            }
+          />
           <ListItem
             primaryText="Both"
-            leftCheckbox={<Checkbox checked={preferStyle.both} onCheck={() => handleChangePreferStyle("both")} />}
+            leftCheckbox={
+              <Checkbox
+                iconStyle={{ fill: grey800 }}
+                checked={preferStyle.both}
+                onCheck={() => handleChangePreferStyle("both")}
+              />
+            }
           />
         </List>
-        <FlatButton />
+        <PopupButton createUserInfo={this.state} />
       </Paper>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => ({
-  submitToDatabase: (data: any) => dispatch(createNewUser(data)),
-});
-
-export default connect(null, mapDispatchToProps)(SignupPopup);
+export default SignupPopup;
