@@ -1,12 +1,17 @@
 import { combineReducers } from "redux";
 
 // const DEFAULT_STATE = {
-//   isLogin: boolean;
-//   username: string;
-//   userId: string;
+//   isLogin: boolean,
+//   username: string,
+//   userId: string,
 //   
-//   apiStatus: string:
-//   cartItems: [];
+//   apiStatus: string,
+//   cartItems: [],
+//   
+//   popupStatus: {
+//     loginPopup: false,
+//     signupPopup: false,
+//   }
 // }
 const isLogin = (state = false, action: any) =>
   (action.type === "LOGIN_SUCCESS" && true) ||
@@ -22,4 +27,5 @@ const cartItems = (state = [], action: any) =>
   (action.type === "REMOVE_CART_ITEM" && (state.splice(action.itemIndex, 1), [...state])) ||
   (action.type === "CLEAR_CART_ITEMS" && []);
 
-export default combineReducers({ isLogin, username, cartItems });
+const popupStatus = (state: any, action: any ) => action.type === "UPDATE_POPUP_STATE" && {...state, [action.popupName]: action[action.popupName]}
+export default combineReducers({ isLogin, username, cartItems, popupStatus });

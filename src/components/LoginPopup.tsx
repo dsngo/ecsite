@@ -37,7 +37,7 @@ class LoginPopup extends React.Component<{}, {}> {
           />
           <br />
         </List>
-        <PopupButton loginUserInfo={this.state} />
+        <PopupButton {...{loginUserInfo: this.state }} />
       </Paper>
     );
   }

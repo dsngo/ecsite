@@ -4,16 +4,21 @@ import { connect } from "react-redux";
 import TextField from "material-ui/TextField";
 import AppBar from "material-ui/AppBar";
 import Paper from "material-ui/Paper";
-// import LoginPopup from "./LoginPopup";
+import LoginPopup from "./LoginPopup";
 import SignupPopup from "./SignupPopup";
 import ShoppingCartIcon from "material-ui/svg-icons/action/shopping-cart";
 import { grey500 } from "material-ui/styles/colors";
 import FlatButton from "material-ui/FlatButton";
+import Dialog from "material-ui/Dialog";
+import { handleOpenPopup } from "./redux/actionCreators";
 
 interface INavbar {
   isLogin: boolean;
+  loginPopup: boolean;
+  signupPopup: boolean;
   username: string;
   cartNumberOfItems: number;
+  handleOpenPopup: (popupName: string, isOpen: boolean) => any;
 }
 
 const navbarWomen = [
@@ -23,29 +28,29 @@ const navbarWomen = [
     child: [
       {
         name: "New Arrivals",
-        handle: "new-arrivals"
+        handle: "new-arrivals",
       },
       {
         name: "Puffers",
-        handle: "puffers"
+        handle: "puffers",
       },
       {
         name: "Denim Shop",
-        handle: "denim-shop"
+        handle: "denim-shop",
       },
       {
         name: "Coming Soon",
-        handle: "coming-soon"
+        handle: "coming-soon",
       },
       {
         name: "Best Sellers",
-        handle: "best-seller"
+        handle: "best-seller",
       },
       {
         name: "Choose what you pay",
-        handle: "what-you-pay"
-      }
-    ]
+        handle: "what-you-pay",
+      },
+    ],
   },
   {
     category: "Apparel",
@@ -53,37 +58,37 @@ const navbarWomen = [
     child: [
       {
         name: "Tees",
-        handle: "tees"
+        handle: "tees",
       },
       {
         name: "Top",
-        handle: "top"
+        handle: "top",
       },
       {
         name: "Sweeters",
-        handle: "sweeters"
+        handle: "sweeters",
       },
       {
         name: "Dresses",
-        handle: "dresses"
+        handle: "dresses",
       },
       {
         name: "Denim",
-        handle: "denim"
+        handle: "denim",
       },
       {
         name: "Pants & Shorts",
-        handle: "pants-shorts"
+        handle: "pants-shorts",
       },
       {
         name: "Skirts",
-        handle: "skirts"
+        handle: "skirts",
       },
       {
         name: "Outerwear",
-        handle: "outerwear"
-      }
-    ]
+        handle: "outerwear",
+      },
+    ],
   },
   {
     category: "Shoes",
@@ -91,9 +96,9 @@ const navbarWomen = [
     child: [
       {
         name: "Loafers",
-        handle: "loafers"
-      }
-    ]
+        handle: "loafers",
+      },
+    ],
   },
   {
     category: "Accessories",
@@ -101,10 +106,10 @@ const navbarWomen = [
     child: [
       {
         name: "Bags",
-        handle: "bags"
-      }
-    ]
-  }
+        handle: "bags",
+      },
+    ],
+  },
 ];
 
 const navbarMen = [
@@ -114,68 +119,64 @@ const navbarMen = [
     child: [
       {
         name: "New Arrivals",
-        handle: "new-arrivals"
+        handle: "new-arrivals",
       },
       {
         name: "Puffers",
-        handle: "puffers"
+        handle: "puffers",
       },
       {
         name: "Denim Shop",
-        handle: "denim-shop"
+        handle: "denim-shop",
       },
       {
         name: "Coming Soon",
-        handle: "coming-soon"
+        handle: "coming-soon",
       },
       {
         name: "Best Sellers",
-        handle: "best-seller"
+        handle: "best-seller",
       },
       {
         name: "Choose what you pay",
-        handle: "what-you-pay"
-      }
-    ]
-  }
+        handle: "what-you-pay",
+      },
+    ],
+  },
 ];
 class Navbar extends React.Component<INavbar> {
   state = {
-    openNavbarChild: false,
-    navbarCurrentCategory: ""
+    openNavbarCollection: false,
+    navbarCurrentCategory: "",
   };
-  
-  constructor(props: any) {
-    super(props);
-  }
-  
   hoverNavbarItem = (open: boolean, category: string) => {
     this.setState(prevState => ({
       ...prevState,
       openNavbarChild: open,
-      navbarCurrentCategory: category
+      navbarCurrentCategory: category,
     }));
   };
   render() {
-    const navbarData =
-      this.state.navbarCurrentCategory === "women" ? navbarWomen : navbarMen;
-    const { state: { navbarCurrentCategory }} = this;
+    const navbarData = this.state.navbarCurrentCategory === "women" ? navbarWomen : navbarMen;
+    const {
+      hoverNavbarItem,
+      props: { username, isLogin, loginPopup, signupPopup, handleOpenPopup },
+      state: { openNavbarCollection, navbarCurrentCategory },
+    } = this;
     return (
       <div>
         <Paper className="navbar">
           <Link
             to="/collections/womens-all"
-            onMouseEnter={e => this.hoverNavbarItem(true, "women")}
-            onMouseLeave={e =>
-              this.hoverNavbarItem(true, navbarCurrentCategory)}
+            onMouseEnter={e => hoverNavbarItem(true, "women")}
+            onMouseLeave={e => this.hoverNavbarItem(true, navbarCurrentCategory)}
           >
             <FlatButton label="Women" className="navbar-item" />
           </Link>
           <Link
             to="/collections/mens-all"
-            onMouseEnter={e => this.hoverNavbarItem(true, "men")}
-            onMouseLeave={e =>
-              this.hoverNavbarItem(false, navbarCurrentCategory)}
+            onMouseEnter={e => hoverNavbarItem(true, "men")}
+            onMouseLeave={e => this.hoverNavbarItem(false, navbarCurrentCategory)}
           >
             <FlatButton label="Men" />
           </Link>
@@ -189,34 +190,47 @@ class Navbar extends React.Component<INavbar> {
             <FlatButton label="About" />
           </Link>
           <Link to="/">ECSITE</Link>
-          {this.props.isLogin ? (
-            <Link to="/account/info">`Hi, ${this.props.username}`</Link>
+          {isLogin ? (
+            <Link to="/account/info">`Hi, ${username}`</Link>
           ) : (
-            <div>{}</div>
+            <div>
+              <FlatButton onClick={() => handleOpenPopup("loginPopup", true)} label="Login" />
+              <FlatButton onClick={() => handleOpenPopup("signupPopup", true)} label="Sign Up" />
+              <Dialog
+                title="Dialog With Date Picker"
+                open={loginPopup}
+                onRequestClose={() => handleOpenPopup("loginPopup", false)}
+              >
+                <LoginPopup />
+              </Dialog>
+              <Dialog
+                title="Dialog With Date Picker"
+                open={signupPopup}
+                onRequestClose={() => handleOpenPopup("signupPopup", false)}
+              >
+                <SignupPopup />
+              </Dialog>
+            </div>
           )}
         </Paper>
-        {this.state.openNavbarChild ? (
+        {openNavbarCollection ? (
           <Paper
             className="navbar-col"
-            onMouseEnter={e =>
-              this.hoverNavbarItem(true, navbarCurrentCategory)}
-            onMouseLeave={e =>
-              this.hoverNavbarItem(false, navbarCurrentCategory)}
+            onMouseEnter={e => this.hoverNavbarItem(true, navbarCurrentCategory)}
+            onMouseLeave={e => this.hoverNavbarItem(false, navbarCurrentCategory)}
           >
-              <div className="align">
-                {navbarData.map((cat: any) => (
-                  <div className="float-left">
-                    <ul>
-                      <div className="section">
-                        <h6 className="navbar-column-header">{cat.category}</h6>
-                        <ul>
-                          {cat.child.map((child: any) => <li>{child.name}</li>)}
-                        </ul>
-                      </div>
-                    </ul>
-                  </div>
-                ))}
-              </div>
+            <div className="align">
+              {navbarData.map((cat: any) => (
+                <div className="float-left">
+                  <ul>
+                    <div className="section">
+                      <h6 className="navbar-column-header">{cat.category}</h6>
+                      <ul>{cat.child.map((child: any) => <li>{child.name}</li>)}</ul>
+                    </div>
+                  </ul>
+                </div>
+              ))}
+            </div>
           </Paper>
         ) : (
           <div />
@@ -229,7 +243,13 @@ class Navbar extends React.Component<INavbar> {
 const mapStateToProps = (state: any) => ({
   isLogin: state.isLogin,
   username: state.username,
-  cartNumberOfItems: state.cartItems.length
+  loginPopup: state.popupStatus.loginPopup,
+  signupPopup: state.popupStatus.signupPopup,
+  cartNumberOfItems: state.cartItems.length,
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  handleOpenPopup: (popupName: string, isOpen: boolean) => dispatch(handleOpenPopup(popupName, isOpen)),
 });
 
 export default connect(mapStateToProps)(Navbar);
