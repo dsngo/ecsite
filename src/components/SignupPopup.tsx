@@ -1,29 +1,13 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 import TextField from "material-ui/TextField";
 import Paper from "material-ui/Paper";
-import { grey50, grey800, redA700, red900, lightBlueA700, lightBlue900, greenA700, green900 } from "material-ui/styles/colors";
-import RaisedButton from "material-ui/RaisedButton";
+import { grey800 } from "material-ui/styles/colors";
 import Checkbox from "material-ui/Checkbox";
 import Subheader from "material-ui/Subheader";
 import { List, ListItem } from "material-ui/List";
-import { createNewUser } from "./redux/actionCreators";
+import PopupButton from "./miscComponents/PopupButtons";
 
-const styles: { [name: string]: React.CSSProperties } = {
-  raisedButton: {
-    marginRight: 5,
-    marginBottom: 15,
-  },
-};
-
-const gradientColor = (color1: string, color2: string) => ({ background: `-webkit-linear-gradient(${color1}, ${color2})` });
-
-interface ISignupPopup {
-  createNewUser: (data: any) => any;
-}
-
-class SignupPopup extends React.Component<ISignupPopup> {
+class SignupPopup extends React.Component<{},{}> {
   state = {
     email: "",
     password: "",
@@ -40,20 +24,18 @@ class SignupPopup extends React.Component<ISignupPopup> {
     const {
       handleChangeUserInfo,
       handleChangePreferStyle,
-      props: { createNewUser },
       state: { email, password, fullname, preferStyle },
     } = this;
     return (
       <Paper>
         <List>
-          <Subheader>Email Address</Subheader>
           <TextField
             value={email}
             onChange={(e: any) => handleChangeUserInfo("email", e.target.value)}
             hintText="Please enter your email address."
             floatingLabelText="Email Address"
           />
-          <Subheader>Full Name</Subheader>
+          <br />
           <TextField
             value={fullname}
             onChange={(e: any) => handleChangeUserInfo("fullname", e.target.value)}
@@ -61,7 +43,6 @@ class SignupPopup extends React.Component<ISignupPopup> {
             floatingLabelText="Full Name"
           />
           <br />
-          <Subheader>Password</Subheader>
           <TextField
             value={password}
             onChange={(e: any) => handleChangeUserInfo("password", e.target.value)}
@@ -100,36 +81,10 @@ class SignupPopup extends React.Component<ISignupPopup> {
             }
           />
         </List>
-        <RaisedButton
-          style={styles.raisedButton}
-          labelColor={grey50}
-          label="SIGN UP"
-          backgroundColor={grey800}
-          onClick={() => createNewUser(this.state)}
-        />
-        <div>Or signup with</div>
-        <RaisedButton
-          style={styles.raisedButton}
-          labelColor={grey50}
-          label="FACEBOOK"
-          backgroundColor={lightBlue900}
-          onClick={() => createNewUser(this.state)}
-        />
-        <br />
-        <RaisedButton
-          style={styles.raisedButton}
-          labelColor={grey50}
-          label="GOOGLE"
-          backgroundColor={red900}
-          onClick={() => createNewUser(this.state)}
-        />
+        <PopupButton createUserInfo={this.state} />
       </Paper>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => ({
-  createNewUser: (data: any) => dispatch(createNewUser(data)),
-});
-
-export default connect(null, mapDispatchToProps)(SignupPopup);
+export default SignupPopup;

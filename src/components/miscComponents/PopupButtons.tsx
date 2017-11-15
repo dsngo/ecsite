@@ -13,19 +13,18 @@ const styles: { [name: string]: React.CSSProperties } = {
 };
 
 interface ISignupPopup {
-  createUserInfo: any;
-  loginUserInfo: any;
-  buttonSet: string;
+  createUserInfo?: any;
+  loginUserInfo?: any;
   createNewUser: (data: any) => any;
   logUserIn: (data: any) => any;
-  facebookAuth: () => any;
-  googleAuth: () => any;
+  facebookAuth?: () => any;
+  googleAuth?: () => any;
 }
 
 const PopupButton: React.SFC<ISignupPopup> = props => {
-  const { createUserInfo, loginUserInfo, buttonSet, createNewUser, logUserIn, facebookAuth, googleAuth } = props;
-  const renderButton = buttonSet === "LOGIN" ? "CONTINUE" : "SIGN UP";
-  const handleOnClick = () => (buttonSet === "LOGIN" ? createNewUser(createUserInfo) : logUserIn(loginUserInfo));
+  const { createUserInfo, loginUserInfo, createNewUser, logUserIn, facebookAuth, googleAuth } = props;
+  const renderButton = loginUserInfo ? "CONTINUE" : "SIGN UP";
+  const handleOnClick = () => (createUserInfo ? createNewUser(createUserInfo) : logUserIn(loginUserInfo));
   return (
     <div>
       <RaisedButton
@@ -35,7 +34,7 @@ const PopupButton: React.SFC<ISignupPopup> = props => {
         backgroundColor={grey800}
         onClick={handleOnClick}
       />
-      <div>{`Or ${renderButton} with`}</div>
+      <div>{`OR ${renderButton} WITH`}</div>
       <RaisedButton
         style={styles.raisedButton}
         labelColor={grey50}
@@ -57,7 +56,7 @@ const PopupButton: React.SFC<ISignupPopup> = props => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   createNewUser: (data: any) => dispatch(createNewUser(data)),
-  logUserIn: (data: any) => dispatch(logUserIn(data));
+  logUserIn: (data: any) => dispatch(logUserIn(data)),
 });
 
 export default connect(null, mapDispatchToProps)(PopupButton);
