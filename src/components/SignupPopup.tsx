@@ -34,6 +34,8 @@ class SignupPopup extends React.Component<{},{}> {
             onChange={(e: any) => handleChangeUserInfo("email", e.target.value)}
             hintText="Please enter your email address."
             floatingLabelText="Email Address"
+            underlineFocusStyle={{borderColor: grey800}}
+            floatingLabelStyle={{color: grey800}}
           />
           <br />
           <TextField
@@ -41,6 +43,8 @@ class SignupPopup extends React.Component<{},{}> {
             onChange={(e: any) => handleChangeUserInfo("fullname", e.target.value)}
             hintText="Please enter your full name."
             floatingLabelText="Full Name"
+            underlineFocusStyle={{borderColor: grey800}}
+            floatingLabelStyle={{color: grey800}}
           />
           <br />
           <TextField
@@ -49,6 +53,8 @@ class SignupPopup extends React.Component<{},{}> {
             hintText="Please enter your password."
             floatingLabelText="Password"
             type="password"
+            underlineFocusStyle={{borderColor: grey800}}
+            floatingLabelStyle={{color: grey800}}
           />
           <br />
         </List>
