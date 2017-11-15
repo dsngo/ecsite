@@ -152,7 +152,7 @@ class Navbar extends React.Component<INavbar, {}> {
   hoverNavbarItem = (open: boolean, category: string) => {
     this.setState(prevState => ({
       ...prevState,
-      openNavbarChild: open,
+      openNavbarCollection: open,
       navbarCurrentCategory: category,
     }));
   };
@@ -169,14 +169,14 @@ class Navbar extends React.Component<INavbar, {}> {
           <Link
             to="/collections/womens-all"
             onMouseEnter={e => hoverNavbarItem(true, "women")}
-            onMouseLeave={e => this.hoverNavbarItem(true, navbarCurrentCategory)}
+            onMouseLeave={e => hoverNavbarItem(true, navbarCurrentCategory)}
           >
             <FlatButton label="Women" className="navbar-item" />
           </Link>
           <Link
             to="/collections/mens-all"
             onMouseEnter={e => hoverNavbarItem(true, "men")}
-            onMouseLeave={e => this.hoverNavbarItem(false, navbarCurrentCategory)}
+            onMouseLeave={e => hoverNavbarItem(false, navbarCurrentCategory)}
           >
             <FlatButton label="Men" />
           </Link>
@@ -194,17 +194,15 @@ class Navbar extends React.Component<INavbar, {}> {
             <Link to="/account/info">`Hi, ${username}`</Link>
           ) : (
             <span>
-              <FlatButton onClick={() => handleOpenPopup("loginPopup", true)} label="Login" />
-              <FlatButton onClick={() => handleOpenPopup("signupPopup", true)} label="Sign Up" />
+              <FlatButton onClick={() => handleOpenPopup("signupPopup", true)} label="Sign Up" className="btn-right" />
+              <FlatButton onClick={() => handleOpenPopup("loginPopup", true)} label="Login" className="btn-right" />
               <Dialog
-                title="Dialog With Date Picker"
                 open={loginPopup}
                 onRequestClose={() => handleOpenPopup("loginPopup", false)}
               >
                 <LoginPopup />
               </Dialog>
               <Dialog
-                title="Dialog With Date Picker"
                 open={signupPopup}
                 onRequestClose={() => handleOpenPopup("signupPopup", false)}
               >
@@ -216,8 +214,8 @@ class Navbar extends React.Component<INavbar, {}> {
         {openNavbarCollection ? (
           <Paper
             className="navbar-col"
-            onMouseEnter={e => this.hoverNavbarItem(true, navbarCurrentCategory)}
-            onMouseLeave={e => this.hoverNavbarItem(false, navbarCurrentCategory)}
+            onMouseEnter={e => hoverNavbarItem(true, navbarCurrentCategory)}
+            onMouseLeave={e => hoverNavbarItem(false, navbarCurrentCategory)}
           >
             <div className="align">
               {navbarData.map((cat: any) => (

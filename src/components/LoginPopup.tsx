@@ -15,8 +15,8 @@ class LoginPopup extends React.Component<{}, {}> {
   render() {
     const { handleChangeUserInfo, state: { email, password } } = this;
     return (
-      <Paper>
-        <List>
+      <Paper zDepth={ 0 }>
+        <div className="container">
           <TextField
             value={email}
             onChange={(e: any) => handleChangeUserInfo("email", e.target.value)}
@@ -36,7 +36,7 @@ class LoginPopup extends React.Component<{}, {}> {
             floatingLabelStyle={{ color: grey800 }}
           />
           <br />
-        </List>
+        </div>
         <PopupButton {...{loginUserInfo: this.state }} />
       </Paper>
     );

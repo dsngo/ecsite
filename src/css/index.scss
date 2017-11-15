@@ -53,6 +53,7 @@
     position: relative;
     background-color: #fff;
     ul{ list-style-type: none; }
+    
     .container {
         height: 100%;
         .right {
@@ -138,4 +139,8 @@
     .navbar-item {
         height: 40px !important;
     }
+    .btn-right {
+        float: right;
+    }
+
 }
