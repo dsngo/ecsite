@@ -42,7 +42,7 @@
         }
     }
 }
- 
+
 
 .footer {
     font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
@@ -89,5 +89,53 @@
                 }
             }
         }
+    }
+}
+
+.navbar-col {
+    position: fixed;
+    text-align: center;
+    top: 40px;
+    width: 100%;
+    z-index: 10;
+    .align {
+        display: table;
+        margin: 0 auto;
+    }
+    .float-left {
+        float: left;
+    }
+    .section {
+        text-align: left;
+        float: left;
+        margin-right: 45px;
+        .navbar-column-header, li {
+            font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+            font-size: 11px;
+            line-height: 17.798px;
+            color: #808284;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+            margin-top: 0;
+        }
+        
+        ul {
+            padding-left: 0;
+            li {
+                text-transform: none;
+            }
+        }
+        .navbar-column-header {
+            font-weight: bold;
+        }
+    }
+}
+
+.navbar {
+    height: 40px;
+    .navbar-item {
+        height: 40px !important;
     }
 }
