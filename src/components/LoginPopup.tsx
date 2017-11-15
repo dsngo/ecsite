@@ -16,8 +16,14 @@ class LoginPopup extends React.Component<{}, {}> {
     const { handleChangeUserInfo, state: { email, password } } = this;
     return (
       <Paper zDepth={ 0 }>
-        <div className="container">
+        <div className="login-modal">
+          <div className="welcome-text">
+            Good to see you again. <br/>
+            Please log in.
+
+          </div>
           <TextField
+          fullWidth
             value={email}
             onChange={(e: any) => handleChangeUserInfo("email", e.target.value)}
             hintText="Please enter your email address."
@@ -27,6 +33,7 @@ class LoginPopup extends React.Component<{}, {}> {
           />
           <br />
           <TextField
+          fullWidth
             value={password}
             onChange={(e: any) => handleChangeUserInfo("password", e.target.value)}
             hintText="Please enter your password."

@@ -178,16 +178,16 @@ class Navbar extends React.Component<INavbar, {}> {
             onMouseEnter={e => hoverNavbarItem(true, "men")}
             onMouseLeave={e => hoverNavbarItem(false, navbarCurrentCategory)}
           >
-            <FlatButton label="Men" />
+            <FlatButton label="Men" className="navbar-item" />
           </Link>
           <Link to="/visit-us">
-            <FlatButton label="Visit us" />
+            <FlatButton label="Visit us" className="navbar-item" />
           </Link>
           <Link to="/factories">
-            <FlatButton label="Factories" />
+            <FlatButton label="Factories" className="navbar-item" />
           </Link>
           <Link to="/about">
-            <FlatButton label="About" />
+            <FlatButton label="About" className="navbar-item" />
           </Link>
           <Link to="/">ECSITE</Link>
           {isLogin ? (
