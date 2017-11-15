@@ -11,6 +11,9 @@ export const addCartItem = (addedCartItem: any) => ({ addedCartItem, type: "ADD_
 export const removeCartItem = (itemIndex: number) => ({ itemIndex, type: "REMOVE_CART_ITEM" });
 export const clearCartItem = () => ({ type: "CLEAR_CART_ITEMS" });
 
+// HANDLE POPUP
+export const handleOpenPopup = (popupName: string, isOpen: boolean) => ({ popupName, type: "UPDATE_POPUP_STATE", [popupName]: isOpen });
+
 // SERVER API
 export const createNewUser = (data: any) => async (dispatch: any) => {
   const { message: apiStatus } = (await axios.post(`${urlServer}/signup-new-user`, data)).data;
@@ -26,7 +29,7 @@ export const createNewUser = (data: any) => async (dispatch: any) => {
   }
 };
 
-export const saveUserInfo = (data: any) => async (dispatch: any, getState: ()=> any) => {
+export const saveUserInfo = (data: any) => async (dispatch: any, getState: () => any) => {
   const { userId, cartItems } = getState();
   const { message: apiStatus } = (await axios.post(`${urlServer}/save-user-info`, data)).data;
   if (apiStatus) {
@@ -39,9 +42,9 @@ export const saveUserInfo = (data: any) => async (dispatch: any, getState: ()=> 
       type: "SAVE_USER_INFO_FAILURE",
     });
   }
-}
+};
 
-export const logUserIn = (data: any) => async (dispatch: any, getState: ()=> any) => {
+export const logUserIn = (data: any) => async (dispatch: any, getState: () => any) => {
   const { userId, cartItems } = getState();
   const { message: apiStatus, responsedData } = (await axios.post(`${urlServer}/user-login`, data)).data;
   if (apiStatus) {
@@ -56,4 +59,4 @@ export const logUserIn = (data: any) => async (dispatch: any, getState: ()=> any
       type: "LOGIN_FAILURE",
     });
   }
-}
+};

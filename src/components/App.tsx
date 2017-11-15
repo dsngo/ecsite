@@ -7,16 +7,12 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Navbar from "./Navbar";
 import Landing from "./Landing";
 import Footer from "./Footer";
-import SignupPopup from "./SignupPopup";
-import LoginPopup from "./LoginPopup";
 
 export const App: React.SFC = () => (
   <Router>
     <Provider store={store}>
       <MuiThemeProvider>
         <Navbar />
-        <SignupPopup />
-        <LoginPopup />
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route component={FoF} />

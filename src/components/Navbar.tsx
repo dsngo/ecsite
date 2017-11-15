@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import TextField from "material-ui/TextField";
 import AppBar from "material-ui/AppBar";
 import Paper from "material-ui/Paper";
-// import LoginPopup from "./LoginPopup";
+import LoginPopup from "./LoginPopup";
 import SignupPopup from "./SignupPopup";
 import NavbarCollection from "./miscComponents/NavbarCollection";
 import ShoppingCartIcon from "material-ui/svg-icons/action/shopping-cart";
@@ -24,14 +24,14 @@ const navbarWomen = [
     child: [
       {
         name: "New Arrivals",
-        handle: "new-arrivals"
+        handle: "new-arrivals",
       },
       {
         name: "Puffers",
-        handle: "puffers"
-      }
-    ]
-  }
+        handle: "puffers",
+      },
+    ],
+  },
 ];
 
 const navbarMen = [
@@ -41,29 +41,31 @@ const navbarMen = [
     child: [
       {
         name: "New Arrivals",
-        handle: "new-arrivals"
+        handle: "new-arrivals",
       },
       {
         name: "Puffers",
-        handle: "puffers"
-      }
-    ]
-  }
+        handle: "puffers",
+      },
+    ],
+  },
 ];
 class Navbar extends React.Component<INavbar> {
   state = {
     openNavbarChild: false,
-    navbarCurrentCategory: ""
+    navbarCurrentCategory: "",
+    loginPopup: false,
+    signupPopup: false,
   };
   constructor(props: any) {
     super(props);
   }
-
+  handleOpenPopup = (popupName: string, isOpen: boolean) => this.setState(prevState => ({...prevState, [popupName]: isOpen}))
   hoverNavbarItem = (open: boolean, category: string) => {
     this.setState(prevState => ({
       ...prevState,
       openNavbarChild: open,
-      navbarCurrentCategory: category
+      navbarCurrentCategory: category,
     }));
   };
   render() {
@@ -93,18 +95,14 @@ class Navbar extends React.Component<INavbar> {
           {this.props.isLogin ? (
             <Link to="/account/info">`Hi, ${this.props.username}`</Link>
           ) : (
-            <div>{}</div>
+            <div>
+              <LoginPopup handleOpenPopup={this.handleOpenPopup} /><SignupPopup handleOpenPopup={this.handleOpenPopup} />
+            </div>
           )}
           {}
         </Paper>
         {this.state.openNavbarChild ? (
-          <NavbarCollection
-            data={
-              this.state.navbarCurrentCategory === "women"
-                ? navbarWomen
-                : navbarMen
-            }
-          />
+          <NavbarCollection data={this.state.navbarCurrentCategory === "women" ? navbarWomen : navbarMen} />
         ) : (
           <div />
         )}
@@ -116,7 +114,7 @@ class Navbar extends React.Component<INavbar> {
 const mapStateToProps = (state: any) => ({
   isLogin: state.isLogin,
   username: state.username,
-  cartNumberOfItems: state.cartItems.length
+  cartNumberOfItems: state.cartItems.length,
 });
 
 export default connect(mapStateToProps)(Navbar);

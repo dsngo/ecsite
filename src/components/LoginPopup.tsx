@@ -13,7 +13,7 @@ class LoginPopup extends React.Component<{}, {}> {
   };
   handleChangeUserInfo = (key: string, info: string) => this.setState(prevState => ({ ...prevState, [key]: info }));
   render() {
-    const { handleChangeUserInfo, state: { email, password } } = this;
+    const { handleChangeUserInfo, props: { handleOpenPopup }, state: { email, password } } = this;
     return (
       <Paper>
         <List>
@@ -37,7 +37,7 @@ class LoginPopup extends React.Component<{}, {}> {
           />
           <br />
         </List>
-        <PopupButton loginUserInfo={this.state} />
+        <PopupButton {...{loginUserInfo: this.state }} />
       </Paper>
     );
   }
