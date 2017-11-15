@@ -28,4 +28,4 @@ const cartItems = (state = [], action: any) =>
   (action.type === "CLEAR_CART_ITEMS" && []);
 
 const popupStatus = (state: any, action: any ) => action.type === "UPDATE_POPUP_STATE" && {...state, [action.popupName]: action[action.popupName]}
-export default combineReducers({ isLogin, username, cartItems });
+export default combineReducers({ isLogin, username, cartItems, popupStatus });

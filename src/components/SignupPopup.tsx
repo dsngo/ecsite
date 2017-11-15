@@ -24,7 +24,6 @@ class SignupPopup extends React.Component<{}, {}> {
     const {
       handleChangeUserInfo,
       handleChangePreferStyle,
-      props: { handleOpenPopup },
       state: { email, password, fullname, preferStyle },
     } = this;
     return (
