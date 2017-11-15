@@ -10,9 +10,10 @@ import Subheader from "material-ui/Subheader";
 import { List, ListItem } from "material-ui/List";
 import { createNewUser } from "./redux/actionCreators";
 
-const styles: React.CSSProperties = {
+const styles: { [name: string]: React.CSSProperties } = {
   raisedButton: {
     marginRight: 5,
+    marginBottom: 15,
   },
 };
 
@@ -106,17 +107,19 @@ class SignupPopup extends React.Component<ISignupPopup> {
           backgroundColor={grey800}
           onClick={() => createNewUser(this.state)}
         />
+        <div>Or signup with</div>
         <RaisedButton
           style={styles.raisedButton}
           labelColor={grey50}
-          label="SIGN UP WITH FACEBOOK"
+          label="FACEBOOK"
           backgroundColor={lightBlue900}
           onClick={() => createNewUser(this.state)}
         />
+        <br />
         <RaisedButton
           style={styles.raisedButton}
           labelColor={grey50}
-          label="SIGN UP WITH GOOGLE"
+          label="GOOGLE"
           backgroundColor={red900}
           onClick={() => createNewUser(this.state)}
         />

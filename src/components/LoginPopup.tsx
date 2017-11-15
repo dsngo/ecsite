@@ -3,18 +3,25 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import TextField from "material-ui/TextField";
 import Paper from "material-ui/Paper";
-import { grey500 } from "material-ui/styles/colors";
+import { grey50, grey800, lightBlue900, red900 } from "material-ui/styles/colors";
 import RaisedButton from "material-ui/RaisedButton";
 import Checkbox from "material-ui/Checkbox";
 import Subheader from "material-ui/Subheader";
 import { List, ListItem } from "material-ui/List";
 import { createNewUser } from "./redux/actionCreators";
 
-interface ISignupPopup {
+interface ILoginPopup {
   createNewUser: (data: any) => any;
 }
 
-class SignupPopup extends React.Component<ISignupPopup> {
+const styles: { [name: string]: React.CSSProperties } = {
+  raisedButton: {
+    marginRight: 5,
+    marginBottom: 15,
+  },
+};
+
+class LoginPopup extends React.Component<ILoginPopup> {
   state = {
     email: "",
     password: "",
@@ -77,7 +84,29 @@ class SignupPopup extends React.Component<ISignupPopup> {
             leftCheckbox={<Checkbox checked={preferStyle.both} onCheck={() => handleChangePreferStyle("both")} />}
           />
         </List>
-        <RaisedButton label="CONTINUE" primary onClick={()=> createNewUser(this.state)}/>
+        <RaisedButton
+          style={styles.raisedButton}
+          labelColor={grey50}
+          label="CONTINUE"
+          backgroundColor={grey800}
+          onClick={() => createNewUser(this.state)}
+        />
+        <div>Or login with</div>
+        <RaisedButton
+          style={styles.raisedButton}
+          labelColor={grey50}
+          label="FACEBOOK"
+          backgroundColor={lightBlue900}
+          onClick={() => createNewUser(this.state)}
+        />
+        <br />
+        <RaisedButton
+          style={styles.raisedButton}
+          labelColor={grey50}
+          label="GOOGLE"
+          backgroundColor={red900}
+          onClick={() => createNewUser(this.state)}
+        />
       </Paper>
     );
   }
@@ -87,4 +116,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   createNewUser: (data: any) => dispatch(createNewUser(data)),
 });
 
-export default connect(null, mapDispatchToProps)(SignupPopup);
+export default connect(null, mapDispatchToProps)(LoginPopup);

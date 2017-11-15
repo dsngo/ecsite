@@ -8,6 +8,7 @@ import Navbar from "./Navbar";
 import Landing from "./Landing";
 import Footer from "./Footer";
 import SignupPopup from "./SignupPopup";
+import LoginPopup from "./LoginPopup";
 
 export const App: React.SFC = () => (
   <Router>
@@ -15,6 +16,7 @@ export const App: React.SFC = () => (
       <MuiThemeProvider>
         <Navbar />
         <SignupPopup />
+        <LoginPopup />
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route component={FoF} />

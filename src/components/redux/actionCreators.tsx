@@ -41,17 +41,19 @@ export const saveUserInfo = (data: any) => async (dispatch: any, getState: ()=> 
   }
 }
 
-export const updateUserInfo = (data: any) => async (dispatch: any, getState: ()=> any) => {
+export const logUserIn = (data: any) => async (dispatch: any, getState: ()=> any) => {
   const { userId, cartItems } = getState();
-  const { message: apiStatus } = (await axios.put(`${urlServer}/save-user-info`, data)).data;
+  const { message: apiStatus, responsedData } = (await axios.post(`${urlServer}/user-login`, data)).data;
   if (apiStatus) {
     dispatch({
+      responsedData,
       apiStatus,
-      type: "SAVE_USER_INFO_SUCCESS",
+      type: "LOGIN_SUCCESS",
     });
   } else {
     dispatch({
-      type: "SAVE_USER_INFO_FAILURE",
+      apiStatus,
+      type: "LOGIN_FAILURE",
     });
   }
 }
