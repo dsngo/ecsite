@@ -144,10 +144,11 @@ class Navbar extends React.Component<INavbar> {
     openNavbarChild: false,
     navbarCurrentCategory: ""
   };
+  
   constructor(props: any) {
     super(props);
   }
-
+  
   hoverNavbarItem = (open: boolean, category: string) => {
     this.setState(prevState => ({
       ...prevState,
