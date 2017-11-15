@@ -15,7 +15,6 @@ import { List, ListItem } from "material-ui/List";
 import { navbarMen, navbarWomen } from "../data/navbarCollectionData";
 import Subheader from "material-ui/Subheader";
 
-
 interface INavbar {
   isLogin: boolean;
   loginPopup: boolean;
@@ -31,41 +30,64 @@ const styles: { [key: string]: React.CSSProperties } = {
     textAlign: "center",
     top: 40,
     width: "100%",
-    zIndex: 10,
-    display: "table",
-    margin: "0 auto",
+    zIndex: 10
   },
-  collectionItems: {
-
+  navbarAlign: {
+    display: "table",
+    margin: "0 auto"
+  },
+  collectionItems: {},
+  ul: {
+    paddingLeft: "0"
+  },
+  li: {
+    fontFamily: "graphik,Helvetica Neue,Helvetica,Arial,'sans-serif'",
+    fontSize: "11px",
+    lineHeight: "17.798px",
+    color: "#808284",
+    fontWeight: 400,
+    textTransform: "uppercase",
+    marginBottom: "5px",
+    display: "block",
+    marginTop: "0",
+    paddingLeft: "0",
+    cursor: "pointer"
+  },
+  section: {
+    textAlign: "left",
+    float: "left",
+    marginRight: "45px"
   },
   navbarData: {
     textAlign: "left",
     float: "left",
-    marginRight: "45px",
+    marginRight: "45px"
   },
   navbarColHeader: {
     fontWeight: 700,
-  },
+    paddingLeft: "0"
+  }
 };
 
 class Navbar extends React.Component<INavbar, {}> {
   state = {
     openNavbarCollection: false,
-    navbarCurrentCategory: "",
+    navbarCurrentCategory: ""
   };
   hoverNavbarItem = (open: boolean, category: string) => {
     this.setState(prevState => ({
       ...prevState,
       openNavbarCollection: open,
-      navbarCurrentCategory: category,
+      navbarCurrentCategory: category
     }));
   };
   render() {
-    const navbarData = this.state.navbarCurrentCategory === "women" ? navbarWomen : navbarMen;
+    const navbarData =
+      this.state.navbarCurrentCategory === "women" ? navbarWomen : navbarMen;
     const {
       hoverNavbarItem,
       props: { username, isLogin, loginPopup, signupPopup, handleOpenPopup },
-      state: { openNavbarCollection, navbarCurrentCategory },
+      state: { openNavbarCollection, navbarCurrentCategory }
     } = this;
     return (
       <Paper className="navbar">
@@ -79,7 +101,7 @@ class Navbar extends React.Component<INavbar, {}> {
         <Link
           to="/collections/mens-all"
           onMouseEnter={e => hoverNavbarItem(true, "men")}
-          onMouseLeave={e => hoverNavbarItem(false, navbarCurrentCategory)}
+          onMouseLeave={e => hoverNavbarItem(true, navbarCurrentCategory)}
         >
           <FlatButton label="Men" />
         </Link>
@@ -97,12 +119,26 @@ class Navbar extends React.Component<INavbar, {}> {
           <Link to="/account/info">`Hi, ${username}`</Link>
         ) : (
           <span>
-            <FlatButton onClick={() => handleOpenPopup("signupPopup", true)} label="Sign Up" className="btn-right" />
-            <FlatButton onClick={() => handleOpenPopup("loginPopup", true)} label="Login" className="btn-right" />
-            <Dialog open={loginPopup} onRequestClose={() => handleOpenPopup("loginPopup", false)}>
+            <FlatButton
+              onClick={() => handleOpenPopup("signupPopup", true)}
+              label="Sign Up"
+              className="btn-right"
+            />
+            <FlatButton
+              onClick={() => handleOpenPopup("loginPopup", true)}
+              label="Login"
+              className="btn-right"
+            />
+            <Dialog
+              open={loginPopup}
+              onRequestClose={() => handleOpenPopup("loginPopup", false)}
+            >
               <LoginPopup />
             </Dialog>
-            <Dialog open={signupPopup} onRequestClose={() => handleOpenPopup("signupPopup", false)}>
+            <Dialog
+              open={signupPopup}
+              onRequestClose={() => handleOpenPopup("signupPopup", false)}
+            >
               <SignupPopup />
             </Dialog>
           </span>
@@ -113,12 +149,28 @@ class Navbar extends React.Component<INavbar, {}> {
             onMouseEnter={e => hoverNavbarItem(true, navbarCurrentCategory)}
             onMouseLeave={e => hoverNavbarItem(false, navbarCurrentCategory)}
           >
-            {navbarData.map((cat: any, i: any) => (
-              <Paper zDepth={0} style={styles.navbarData} key={`navbarD-${i}`}>
-                <Subheader style={styles.navbarColHeader}>{cat.category}</Subheader>
-                <List>{cat.child.map((child: any, i: number) => <ListItem key={`categoryC-${i}`}>{child.name}</ListItem>)}</List>
-              </Paper>
-            ))}
+            <div style={styles.navbarAlign}>
+              {navbarData.map((cat: any, i: any) => (
+                <Paper
+                  zDepth={0}
+                  style={styles.navbarData}
+                  key={`navbarD-${i}`}
+                >
+                  <Subheader style={styles.navbarColHeader}>
+                    {cat.category}
+                  </Subheader>
+                  <div style={styles.section}>
+                    <ul style={styles.ul}>
+                      {cat.child.map((child: any, i: number) => (
+                        <li style={styles.li} key={`cat-${i}`}>
+                          {child.name}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Paper>
+              ))}
+            </div>
           </Paper>
         )}
       </Paper>
@@ -131,11 +183,12 @@ const mapStateToProps = (state: any) => ({
   username: state.username,
   loginPopup: state.popupStatus.loginPopup,
   signupPopup: state.popupStatus.signupPopup,
-  cartNumberOfItems: state.cartItems.length,
+  cartNumberOfItems: state.cartItems.length
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  handleOpenPopup: (popupName: string, isOpen: boolean) => dispatch(handleOpenPopup(popupName, isOpen)),
+  handleOpenPopup: (popupName: string, isOpen: boolean) =>
+    dispatch(handleOpenPopup(popupName, isOpen))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
