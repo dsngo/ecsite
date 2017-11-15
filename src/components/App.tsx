@@ -12,12 +12,14 @@ export const App: React.SFC = () => (
   <Router>
     <Provider store={store}>
       <MuiThemeProvider>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route component={FoF} />
-        </Switch>
-        <Footer />
+        <div>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route component={FoF} />
+          </Switch>
+          <Footer />
+        </div>
       </MuiThemeProvider>
     </Provider>
   </Router>

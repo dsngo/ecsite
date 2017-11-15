@@ -99,10 +99,10 @@ class Navbar extends React.Component<INavbar, {}> {
           <span>
             <FlatButton onClick={() => handleOpenPopup("signupPopup", true)} label="Sign Up" className="btn-right" />
             <FlatButton onClick={() => handleOpenPopup("loginPopup", true)} label="Login" className="btn-right" />
-            <Dialog open={loginPopup} onRequestClose={() => handleOpenPopup("loginPopup", false)}>
+            <Dialog open={loginPopup || false} onRequestClose={() => handleOpenPopup("loginPopup", false)}>
               <LoginPopup />
             </Dialog>
-            <Dialog open={signupPopup} onRequestClose={() => handleOpenPopup("signupPopup", false)}>
+            <Dialog open={signupPopup || false} onRequestClose={() => handleOpenPopup("signupPopup", false)}>
               <SignupPopup />
             </Dialog>
           </span>

@@ -49,14 +49,9 @@ const Footer: React.SFC<IFooter> = props => (
         </ul>
       </div>
       <div className="col-xs-6 right">
-            <div>
-            Refer a friend. Earn $25 credit when they purchase.
-            </div>
-            <TextField
-                value="https://www.everlane.com/r/sntrnh"
-                fullWidth
-            />
-          </div>
+        <div>Refer a friend. Earn $25 credit when they purchase.</div>
+        <TextField id="reference-text-test" value="https://www.testtesttest.com/r/sntrnh" fullWidth />
+      </div>
     </div>
   </Paper>
 );
