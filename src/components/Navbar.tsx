@@ -144,7 +144,7 @@ const navbarMen = [
     ],
   },
 ];
-class Navbar extends React.Component<INavbar> {
+class Navbar extends React.Component<INavbar, {}> {
   state = {
     openNavbarCollection: false,
     navbarCurrentCategory: "",
@@ -193,7 +193,7 @@ class Navbar extends React.Component<INavbar> {
           {isLogin ? (
             <Link to="/account/info">`Hi, ${username}`</Link>
           ) : (
-            <div>
+            <span>
               <FlatButton onClick={() => handleOpenPopup("loginPopup", true)} label="Login" />
               <FlatButton onClick={() => handleOpenPopup("signupPopup", true)} label="Sign Up" />
               <Dialog
@@ -210,7 +210,7 @@ class Navbar extends React.Component<INavbar> {
               >
                 <SignupPopup />
               </Dialog>
-            </div>
+            </span>
           )}
         </Paper>
         {openNavbarCollection ? (
@@ -252,4 +252,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   handleOpenPopup: (popupName: string, isOpen: boolean) => dispatch(handleOpenPopup(popupName, isOpen)),
 });
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
