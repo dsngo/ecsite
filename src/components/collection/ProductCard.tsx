@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 
-interface IProductCard {}
+interface IProductCard {
+  selectedStyle: string;
+  
+}
 
 class ProductCard extends React.Component<{}, {}> {
   state = {};
   render() {
     return (
-      <Link>
+      <Link to={`/products/`}>
         <Card>
           <CardHeader title="URL Avatar" subtitle="Subtitle" avatar="images/jsa-128.jpg" />
           <CardMedia overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}>

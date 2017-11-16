@@ -23,24 +23,26 @@ interface ISignupPopup {
 
 const PopupButton: React.SFC<ISignupPopup> = props => {
   const { createUserInfo, loginUserInfo, createNewUser, logUserIn, facebookAuth, googleAuth } = props;
-  const renderButton = loginUserInfo ? "CONTINUE" : "SIGN UP";
+  const renderButton = loginUserInfo ? "continue" : "sign up";
   const handleOnClick = () => (createUserInfo ? createNewUser(createUserInfo) : logUserIn(loginUserInfo));
   return (
-    <div>
+    <div className="popup-button">
       <RaisedButton
         style={styles.raisedButton}
         labelColor={grey50}
         label={renderButton}
         backgroundColor={grey800}
         onClick={handleOnClick}
+        fullWidth
       />
-      <div>{`OR ${renderButton} WITH`}</div>
+      <div className="popup-btn-divider">{`Or ${renderButton} with`}</div>
       <RaisedButton
         style={styles.raisedButton}
         labelColor={grey50}
         label="FACEBOOK"
         backgroundColor={lightBlue900}
         onClick={facebookAuth}
+        fullWidth
       />
       <br />
       <RaisedButton
@@ -49,6 +51,7 @@ const PopupButton: React.SFC<ISignupPopup> = props => {
         label="GOOGLE"
         backgroundColor={red900}
         onClick={facebookAuth}
+        fullWidth
       />
     </div>
   );

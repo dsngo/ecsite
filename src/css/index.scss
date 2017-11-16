@@ -144,3 +144,24 @@
     }
 
 }
+
+.login-modal {
+    margin-left: 15%;
+    margin-right: 15%;
+    .welcome-text {
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+.popup-button {
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-top: 30px;
+    text-align: center;
+    .popup-btn-divider {
+        font-size: 12px;
+        padding-bottom: 15px;
+    }
+}
