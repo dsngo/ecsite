@@ -23,7 +23,7 @@ class Collection extends React.Component<ICollection, {}> {
         <Paper>
           <Breadcrumbs currentBreadcrumbs={data.currentBreadcrumbs} />
           <div className="col-xs-2">
-            <SidebarMenu />
+            <SidebarMenu {...data.sidebarMenu}/>
           </div>
           <div className="col-xs-10">
             <Banner {...data.currentBanner}/>
