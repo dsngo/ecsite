@@ -7,6 +7,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Navbar from "./Navbar";
 import Landing from "./Landing";
 import Footer from "./Footer";
+import Collection from "./Collection";
 
 export const App: React.SFC = () => (
   <Router>
@@ -16,6 +17,7 @@ export const App: React.SFC = () => (
           <Navbar />
           <Switch>
             <Route exact path="/" component={Landing} />
+            <Route path="/collection" component={Collection} />
             <Route component={FoF} />
           </Switch>
           <Footer />
