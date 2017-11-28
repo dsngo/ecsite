@@ -119,14 +119,6 @@ class Navbar extends React.Component<INavbar, {}> {
           <Link to="/account/info">`Hi, ${username}`</Link>
         ) : (
           <span>
-<<<<<<< HEAD
-            <FlatButton onClick={() => handleOpenPopup("signupPopup", true)} label="Sign Up" className="btn-right" />
-            <FlatButton onClick={() => handleOpenPopup("loginPopup", true)} label="Login" className="btn-right" />
-            <Dialog open={loginPopup || false} onRequestClose={() => handleOpenPopup("loginPopup", false)}>
-              <LoginPopup />
-            </Dialog>
-            <Dialog open={signupPopup || false} onRequestClose={() => handleOpenPopup("signupPopup", false)}>
-=======
             <FlatButton
               onClick={() => handleOpenPopup("signupPopup", true)}
               label="Sign Up"
@@ -147,7 +139,6 @@ class Navbar extends React.Component<INavbar, {}> {
               open={signupPopup}
               onRequestClose={() => handleOpenPopup("signupPopup", false)}
             >
->>>>>>> abba320be6e3940bc6534eb284afc032ae485daa
               <SignupPopup />
             </Dialog>
           </span>

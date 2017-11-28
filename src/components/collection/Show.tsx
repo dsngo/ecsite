@@ -4,6 +4,11 @@ import { connect } from "react-redux";
 import { grey50, grey800, redA700, red900, lightBlueA700, lightBlue900, greenA700, green900 } from "material-ui/styles/colors";
 import RaisedButton from "material-ui/RaisedButton";
 import { createNewUser, logUserIn, } from "../redux/actionCreators";
+import Banner from "./Banner";
+import Breadcrumbs from "./Breadcrumbs";
+import Category from "./Category";
+import ProductCard from "./ProductCard";
+import SidebarMenu from "./SidebarMenu";
 
 const styles: { [name: string]: React.CSSProperties } = {
   raisedButton: {
@@ -13,11 +18,16 @@ const styles: { [name: string]: React.CSSProperties } = {
 };
 
 interface ISignupPopup {
-  
+  collection: any;
+  contentPage: any;
+  displayGroups: [any];
+  genderMenu: any;
+  permalink: string;
+  scrollToTopOffset: number
 }
 
 const PopupButton: React.SFC<ISignupPopup> = props => {
-  const { createUserInfo, loginUserInfo, createNewUser, logUserIn, facebookAuth, googleAuth } = props;
+  const { } = props;
   const renderButton = loginUserInfo ? "CONTINUE" : "SIGN UP";
   const handleOnClick = () => (createUserInfo ? createNewUser(createUserInfo) : logUserIn(loginUserInfo));
   return (
