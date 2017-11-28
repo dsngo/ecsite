@@ -19,15 +19,19 @@ class Collection extends React.Component<ICollection, {}> {
     }
     render() {
         const {categories} = this.state;
+        const imgProps = {
+            url : "https://everlane.imgix.net/i/c2afc430_8bf8.jpg?dpr=1.5&q=65",
+            alt: "Banner"
+        }
         return (
             <div className="container">
                 <Paper>
-                    <Breadcrumbs />
+                    <Breadcrumbs currentBreadcrumbs={ ["a"] } />
                     <div className="col-xs-2">
                         <SidebarMenu />
                     </div>
                     <div className="col-xs-10">
-                        <Banner />
+                        <Banner imgProps={ imgProps } title= {"New"} />
                         {
                             categories.map((cat) => (
                                 <Category />
