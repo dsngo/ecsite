@@ -118,77 +118,74 @@ class Navbar extends React.Component<INavbar, {}> {
         {isLogin ? (
           <Link to="/account/info">`Hi, ${username}`</Link>
         ) : (
-          <span>
-<<<<<<< HEAD
-            <FlatButton onClick={() => handleOpenPopup("signupPopup", true)} label="Sign Up" className="btn-right" />
-            <FlatButton onClick={() => handleOpenPopup("loginPopup", true)} label="Login" className="btn-right" />
-            <Dialog open={loginPopup || false} onRequestClose={() => handleOpenPopup("loginPopup", false)}>
-              <LoginPopup />
-            </Dialog>
-            <Dialog open={signupPopup || false} onRequestClose={() => handleOpenPopup("signupPopup", false)}>
-=======
-            <FlatButton
-              onClick={() => handleOpenPopup("signupPopup", true)}
-              label="Sign Up"
-              className="btn-right"
-            />
-            <FlatButton
-              onClick={() => handleOpenPopup("loginPopup", true)}
-              label="Login"
-              className="btn-right"
-            />
-            <Dialog
-              open={loginPopup}
-              onRequestClose={() => handleOpenPopup("loginPopup", false)}
-            >
-              <LoginPopup />
-            </Dialog>
-            <Dialog
-              open={signupPopup}
-              onRequestClose={() => handleOpenPopup("signupPopup", false)}
-            >
->>>>>>> abba320be6e3940bc6534eb284afc032ae485daa
-              <SignupPopup />
-            </Dialog>
-          </span>
-        )}
-        {openNavbarCollection && (
-          <Paper
-            style={styles.navbarCollection}
-            onMouseEnter={e => hoverNavbarItem(true, navbarCurrentCategory)}
-            onMouseLeave={e => hoverNavbarItem(false, navbarCurrentCategory)}
-          >
-            <div style={styles.navbarAlign}>
-              {navbarData.map((cat: any, i: any) => (
-                <Paper
-                  zDepth={0}
-                  style={styles.navbarData}
-                  key={`navbarD-${i}`}
+            <span>
+              <FlatButton onClick={() => handleOpenPopup("signupPopup", true)} label="Sign Up" className="btn-right" />
+              <FlatButton onClick={() => handleOpenPopup("loginPopup", true)} label="Login" className="btn-right" />
+              <Dialog open={loginPopup || false} onRequestClose={() => handleOpenPopup("loginPopup", false)}>
+                <LoginPopup />
+              </Dialog>
+              <Dialog open={signupPopup || false} onRequestClose={() => handleOpenPopup("signupPopup", false)}>
+                <FlatButton
+                  onClick={() => handleOpenPopup("signupPopup", true)}
+                  label="Sign Up"
+                  className="btn-right"
+                />
+                <FlatButton
+                  onClick={() => handleOpenPopup("loginPopup", true)}
+                  label="Login"
+                  className="btn-right"
+                />
+                </Dialog>
+                <Dialog
+                  open={loginPopup}
+                  onRequestClose={() => handleOpenPopup("loginPopup", false)}
                 >
-                  <Subheader style={styles.navbarColHeader}>
-                    {cat.category}
-                  </Subheader>
-                  <div style={styles.section}>
-                    <ul style={styles.ul}>
-                      {cat.child.map((child: any, i: number) => (
-                        <li style={styles.li} key={`cat-${i}`}>
-                          {child.name}
-                        </li>
-                      ))}
-                    </ul>
+                  <LoginPopup />
+                </Dialog>
+                <Dialog
+                  open={signupPopup}
+                  onRequestClose={() => handleOpenPopup("signupPopup", false)}
+                >
+                  <SignupPopup />
+                </Dialog>
+          </span>)}
+              {openNavbarCollection && (
+                <Paper
+                  style={styles.navbarCollection}
+                  onMouseEnter={e => hoverNavbarItem(true, navbarCurrentCategory)}
+                  onMouseLeave={e => hoverNavbarItem(false, navbarCurrentCategory)}
+                >
+                  <div style={styles.navbarAlign}>
+                    {navbarData.map((cat: any, i: any) => (
+                      <Paper
+                        zDepth={0}
+                        style={styles.navbarData}
+                        key={`navbarD-${i}`}
+                      >
+                        <Subheader style={styles.navbarColHeader}>
+                          {cat.category}
+                        </Subheader>
+                        <div style={styles.section}>
+                          <ul style={styles.ul}>
+                            {cat.child.map((child: any, i: number) => (
+                              <li style={styles.li} key={`cat-${i}`}>
+                                {child.name}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </Paper>
+                    ))}
                   </div>
                 </Paper>
-              ))}
-            </div>
-          </Paper>
-        )}
+              )}
       </Paper>
-    );
-  }
+          );
+        }
 }
 
 const mapStateToProps = (state: any) => ({
-  isLogin: state.isLogin,
+          isLogin: state.isLogin,
   username: state.username,
   loginPopup: state.popupStatus.loginPopup,
   signupPopup: state.popupStatus.signupPopup,
@@ -196,7 +193,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  handleOpenPopup: (popupName: string, isOpen: boolean) =>
+          handleOpenPopup: (popupName: string, isOpen: boolean) =>
     dispatch(handleOpenPopup(popupName, isOpen))
 });
 
