@@ -92,7 +92,7 @@ class Navbar extends React.Component<INavbar, {}> {
     return (
       <Paper className="navbar">
         <Link
-          to="/collections/womens-all"
+          to="/"
           onMouseEnter={e => hoverNavbarItem(true, "women")}
           onMouseLeave={e => hoverNavbarItem(true, navbarCurrentCategory)}
         >
