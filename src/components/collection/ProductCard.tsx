@@ -12,7 +12,7 @@ class ProductCard extends React.Component<{}, {}> {
   state = {};
   render() {
     return (
-      <Link to={`/products/`}>
+      <Link to={`/products/${" "}`}>
         <Card>
           <CardHeader title="URL Avatar" subtitle="Subtitle" avatar="images/jsa-128.jpg" />
           <CardMedia overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}>
