@@ -1,17 +1,17 @@
 import * as React from "react";
 
 interface IBanner {
-  imgProps: { url: string; alt: string };
+  backgroundImg: string;
   title: string;
   text?: string;
 }
 
 const styles: React.CSSProperties = {};
 
-const Banner: React.SFC<IBanner> = ({ imgProps: { url, alt }, title, text }) => (
-  <div style={{backgroundImage: `url(${url})`}}>
-    <h1>{title}</h1>
-    {text && <p>{text}</p>}
-  </div>
+const Banner: React.SFC<IBanner> = ({ backgroundImg, title, text }) => (
+    <div style={{backgroundImage: `url(${backgroundImg})`}} className="banner">
+      <h1>{title}</h1>
+      {text && <p>{text}</p>}
+    </div>
 );
 export default Banner;
