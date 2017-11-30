@@ -19,7 +19,7 @@ class Collection extends React.Component<ICollection, {}> {
   render() {
     const { categories } = this.state;
     return (
-      <div className="container">
+      <div className="container collection">
         <Paper>
           <Breadcrumbs currentBreadcrumbs={data.currentBreadcrumbs} />
           <div className="col-xs-2">

@@ -6,7 +6,7 @@ export const data = {
     { children: "test", path: "/test" },
   ],
   currentBanner: {
-    backgroundImg: "https://everlane-2.imgix.net/i/19c345be_d2fc.jpg?dpr=1.5&q=65",
+    backgroundImg: "https://everlane.imgix.net/i/c2afc430_8bf8.jpg?dpr=1.5&q=65",
     text: "Shop all that you want",
     title: "Shop All",
   },

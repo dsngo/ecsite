@@ -165,3 +165,22 @@
         padding-bottom: 15px;
     }
 }
+
+
+.collection {
+    .banner {
+        background-position: center right !important;
+        width: 100%;
+        background: no-repeat;
+        background-size: cover;
+        height: 320px;
+        position: relative;
+        justify-content: flex-start;
+    }
+}
+
+.breadcrumb {
+    padding: 1px;
+    margin-top: 10px;
+}
+

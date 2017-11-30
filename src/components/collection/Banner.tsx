@@ -9,9 +9,9 @@ interface IBanner {
 const styles: React.CSSProperties = {};
 
 const Banner: React.SFC<IBanner> = ({ backgroundImg, title, text }) => (
-  <div style={{backgroundImage: `url(${backgroundImg})`}}>
-    <h1>{title}</h1>
-    {text && <p>{text}</p>}
-  </div>
+    <div style={{backgroundImage: `url(${backgroundImg})`}} className="banner">
+      <h1>{title}</h1>
+      {text && <p>{text}</p>}
+    </div>
 );
 export default Banner;
