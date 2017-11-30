@@ -10,8 +10,9 @@ interface IProductCard {
 class ProductCard extends React.Component<IProductCard, {}> {
   state = {};
   render() {
+    const { props: { initialProduct } } = this;
     return (
-      <Link to={`/products/${" "}`}>
+      <Link to={`/products/${initialProduct.permalink}`}>
         <Card>
           <CardHeader title="URL Avatar" subtitle="Subtitle" avatar="images/jsa-128.jpg" />
           <CardMedia overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}>
