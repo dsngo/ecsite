@@ -10,8 +10,9 @@ interface ICategory {
 const Category: React.SFC<ICategory> = props => {
   const { title, products } = props;
   return (
-    <div>
-      <h1>{title}</h1> {products.map((e,i)=><ProductCard key={`productCard-${i}`} initialProduct={e} />)} />
+    <div className="category">
+      <h3>{title}</h3> 
+      {products.map((e,i)=><ProductCard key={`productCard-${i}`} initialProduct={e} />)}
     </div>
   );
 };

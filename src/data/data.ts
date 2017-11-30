@@ -37,6 +37,7 @@ export const data = {
             description:
               "A truly iconic blazer. Tailored for a slim silhouette (with subtle stretch for the perfect fit), this blazer is made from wrinkle-resistant Italian GoWeave, so you can wear it all day long",
           },
+          title: "The Cashmere Crew",
           price: 125,
           gender: "female",
           permalink: "womens-italian-goweave-classic-blazer",
