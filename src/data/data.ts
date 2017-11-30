@@ -23,4 +23,30 @@ export const data = {
       items: [{ item: "test21", path: "/test21" }, { item: "test21", path: "/test21" }, { item: "test21", path: "/test21" }],
     },
   },
+  categories: [
+    {
+      title: "The Italian GoWeave Classic Blazer",
+      products: [
+        {
+          albums: { portrait: ["https://everlane-2.imgix.net/i/39815c51_815c.jpg"] },
+          details: {
+            additional_details: [
+              "Back vent",
+              "Located just south of Ho Chi Minh City, Poong In is an industry-leading factory that offers competitive pay and works with Better Work",
+            ],
+            description:
+              "A truly iconic blazer. Tailored for a slim silhouette (with subtle stretch for the perfect fit), this blazer is made from wrinkle-resistant Italian GoWeave, so you can wear it all day long",
+          },
+          price: 125,
+          gender: "female",
+          permalink: "womens-italian-goweave-classic-blazer",
+          sizeChart: [
+            ["MEASUREMENTS", "24", "25", "26", "27", "28", "29", "30", "31", "32"],
+            ["US Pant Size", "00", "0", "2", "4", "6", "8", "10", "12", "14"],
+            ["Waistband Top Edge", "26 3/4", "27 3/4", "28 3/4", "29 3/4", "30 3/4", "31 3/4", "32 3/4"],
+          ],
+        },
+      ],
+    },
+  ],
 };

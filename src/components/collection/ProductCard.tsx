@@ -4,11 +4,10 @@ import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from "m
 import FlatButton from "material-ui/FlatButton";
 
 interface IProductCard {
-  selectedStyle: string;
-  
+  initialProduct: any;
 }
 
-class ProductCard extends React.Component<{}, {}> {
+class ProductCard extends React.Component<IProductCard, {}> {
   state = {};
   render() {
     return (
@@ -33,3 +32,5 @@ class ProductCard extends React.Component<{}, {}> {
     );
   }
 }
+
+export default ProductCard;
