@@ -27,7 +27,7 @@ class Collection extends React.Component<ICollection, {}> {
           </div>
           <div className="col-xs-10">
             <Banner {...data.currentBanner}/>
-            {categories.map(cat => <Category {...cat}/>)}
+            {data.categories.map(cat => <Category {...cat}/>)}
           </div>
         </Paper>
       </div>

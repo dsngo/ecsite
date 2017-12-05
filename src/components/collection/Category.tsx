@@ -11,7 +11,7 @@ const Category: React.SFC<ICategory> = props => {
   const { title, products } = props;
   return (
     <div>
-      <h1>{title}</h1> {products.map((e,i)=><ProductCard key={`productCard-${i}`} initialProduct={e} />)} />
+      <h1>{title}</h1> {products.map((e,i)=><ProductCard key={`productCard-${i}`} initialProduct={e} />)}
     </div>
   );
 };

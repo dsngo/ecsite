@@ -1,10 +1,13 @@
 import * as React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
+import { addCartItem } from "../redux/actionCreators";
 
 interface IProductCard {
   initialProduct: any;
+  addCartItem: (item: any) => any;
 }
 
 class ProductCard extends React.Component<IProductCard, {}> {
@@ -33,5 +36,7 @@ class ProductCard extends React.Component<IProductCard, {}> {
     );
   }
 }
-
-export default ProductCard;
+const mapDispatchToProps = (dispatch: any) => ({
+  addCartItem: (item: any) => dispatch(addCartItem(item)),
+});
+export default connect(null, mapDispatchToProps)(ProductCard);

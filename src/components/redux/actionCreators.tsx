@@ -7,9 +7,10 @@ export const loginSuccess = (username: string) => ({ username, type: "LOGIN_SUCC
 export const loginFailure = () => ({ type: "LOGIN_FAILURE" });
 export const logoutSuccess = () => ({ type: "LOGOUT_SUCCESS" });
 export const loadCartItems = (savedCartItems: any[]) => ({ savedCartItems, type: "LOAD_CART_ITEMS" });
-export const addCartItem = (addedCartItem: any) => ({ addedCartItem, type: "ADD_CART_ITEM" });
+export const addCartItem = (item: any) => ({ item, type: "ADD_CART_ITEM" });
 export const removeCartItem = (itemIndex: number) => ({ itemIndex, type: "REMOVE_CART_ITEM" });
 export const clearCartItem = () => ({ type: "CLEAR_CART_ITEMS" });
+
 
 // HANDLE POPUP
 export const handleOpenPopup = (popupName: string, isOpen: boolean) => ({ popupName, type: "UPDATE_POPUP_STATE", [popupName]: isOpen });
