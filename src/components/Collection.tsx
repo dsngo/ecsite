@@ -13,11 +13,7 @@ import Paper from "material-ui/Paper";
 interface ICollection {}
 
 class Collection extends React.Component<ICollection, {}> {
-  state = {
-    categories: [],
-  };
   render() {
-    const { categories } = this.state;
     return (
       <div className="container collection">
         <Paper>

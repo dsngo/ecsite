@@ -9,15 +9,25 @@ interface IProductCard {
   initialProduct: any;
   addCartItem: (item: any) => any;
 }
+const styles: React.CSSProperties = {
 
+};
 class ProductCard extends React.Component<IProductCard, {}> {
   state = {};
   render() {
     const { props: { initialProduct } } = this;
+    console.log(initialProduct.albums.portrait[0]);
+    const styleThumbnail = {
+      background: `url(${initialProduct.albums.portrait[0]}) no-repeat`,
+      backgroundPosition: "center right",
+      width: "100%",
+      backgroundSize: "cover",
+      height: "280px",
+    }
     return (
       <Link to={`/products/${initialProduct.permalink}`}>
-        <Card>
-          <CardHeader title="URL Avatar" subtitle="Subtitle" avatar="images/jsa-128.jpg" />
+        <Card className="col-xs-4 product-card">
+          {/* <CardHeader title="URL Avatar" subtitle="Subtitle" avatar="images/jsa-128.jpg" />
           <CardMedia overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}>
             <img src="images/nature-600-337.jpg" alt="" />
           </CardMedia>
@@ -30,7 +40,16 @@ class ProductCard extends React.Component<IProductCard, {}> {
           <CardActions>
             <FlatButton label="Action1" />
             <FlatButton label="Action2" />
-          </CardActions>
+          </CardActions> */}
+          <div className="thumbnail" style={styleThumbnail}></div>
+          <div className="detail">
+            <div className="col-xs-7 product-title">
+              {initialProduct.title}
+            </div>
+            <div className="col-xs-5 product-price">
+              {initialProduct.price}$
+            </div>
+          </div>
         </Card>
       </Link>
     );
