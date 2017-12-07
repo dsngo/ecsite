@@ -18,13 +18,15 @@ class Collection extends React.Component<ICollection, {}> {
       <div className="container collection">
         <Paper>
           <Breadcrumbs currentBreadcrumbs={data.currentBreadcrumbs} />
-          <div className="col-xs-2">
-            <SidebarMenu {...data.sidebarMenu}/>
-          </div>
-          <div className="col-xs-10">
-            <Banner {...data.currentBanner}/>
-            {data.categories.map(cat => <Category {...cat}/>)}
-          </div>
+          <Paper zDepth={1} style={{ float: "left", width: "100%", marginTop: "30px"}}>
+            <div className="col-xs-2 sidebar-menu">
+              <SidebarMenu {...data.sidebarMenu}/>
+            </div>
+            <div className="col-xs-10 collection">
+              <Banner {...data.currentBanner}/>
+              {data.categories.map(cat => <Category {...cat}/>)}
+            </div>
+          </Paper>
         </Paper>
       </div>
     );

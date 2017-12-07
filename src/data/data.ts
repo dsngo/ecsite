@@ -11,12 +11,30 @@ export const data = {
     title: "Shop All",
   },
   sidebarMenu: {
+    featuredCategories: [
+      {
+        item: "Women All",
+        path: "/women-all"
+      },
+      {
+        item: "New Arrivals",
+        path: "/new-arrivals"
+      },
+      {
+        item: "Gift for her",
+        path: "/gift-for-her"
+      },
+      {
+        item: "Gift for him",
+        path: "/gift-for-him"
+      }
+    ],
     mainMenuItems: [
-      { item: "test1", path: "/test1" },
-      { item: "test1", path: "/test1" },
-      { item: "test2", path: "/test2" },
-      { item: "test1", path: "/test1" },
-      { item: "test1", path: "/test1" },
+      { item: "Tees", path: "/test1" },
+      { item: "Tops", path: "/test1" },
+      { item: "Sweeters", path: "/test2" },
+      { item: "Dresses", path: "/test1" },
+      { item: "Denim", path: "/test1" },
     ],
     subMenuItems: {
       refItem: "test2",
@@ -28,7 +46,7 @@ export const data = {
       title: "The Italian GoWeave Classic Blazer",
       products: [
         {
-          albums: { portrait: ["https://everlane-2.imgix.net/i/39815c51_815c.jpg"] },
+        albums: { portrait: ["https://everlane-2.imgix.net/i/39815c51_815c.jpg", "https://everlane-2.imgix.net/i/a1f6bf29_5056.jpg?dpr=1&w=362&h=452.5&q=65&fit=crop&crop=faces"] },
           details: {
             additional_details: [
               "Back vent",
