@@ -279,3 +279,109 @@
 .category {
     padding-bottom: 20px;
 }
+
+.product-detail {
+    .product-gallery-thumbs {
+        width: 9%;
+        margin-right: 10px;
+    }
+    .product-gallery-assets {
+        width: 91%;
+    }
+    .sticky-thumb-container {
+        position: relative;
+        padding-top: 20px;
+    }
+    .product-gallery-assets-container {
+        padding-top: 20px;
+        padding-left: 10px;
+    }
+    .sticky-thumb-items {
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .image-item {
+        margin-bottom: 10px;
+        img {
+            width: 100%;
+        }
+    }
+    .thumb-item {
+        margin-bottom: 10px;
+        line-height: 0;
+        border: 1px solid #f7f7f8;
+        img {
+            width: 100%;
+        }
+    }
+    .product-info {
+        font-family: csb, "Century Schoolbook", Georgia, serif;
+        padding: 20px 10px;
+        .title-price {
+            font-size: 18px;
+        }
+        .traditional-retail {
+            color: #bb8b7d;
+            cursor: pointer;
+            font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+            padding-top: 5px;
+            font-size: 12px;
+        }
+        .product-color {
+            text-indent: 110%;
+            white-space: nowrap;
+            overflow: hidden;
+            border-radius: 11px;
+            border: 1px solid #dfe0e1;
+            display: block;
+            box-sizing: border-box;
+            width: 22px;
+            height: 22px;
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        .current-color {
+            font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+            color: #AEB0B1;
+            padding-top: 10px;
+        }
+        .sizes {
+            font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+            padding-top: 10px;
+            a {
+                color: #AEB0B1;
+                text-decoration: none;
+            }
+            padding-bottom: 10px;
+            .product-size {
+                padding: 8px;
+                text-align: center;
+                min-width: 22px;
+                min-height: 22px;
+                display: inline-block;
+                &:hover {
+                    border: 1px solid black;
+                }
+            }
+        }
+        .btn-add-to-bag {
+            color: white;
+        }
+        .description {
+            font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+            .title {
+                color: #AEB0B1;
+                padding-top: 10px;
+            }
+            .content {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 19px;
+                color: #808284;
+            }
+        }
+    }
+}
