@@ -10,21 +10,21 @@ import { data } from "../data/data";
 // Import component UI
 import Paper from "material-ui/Paper";
 
-interface ICollection {}
+interface IProductDetail {}
 
-class Collection extends React.Component<ICollection, {}> {
+class ProductDetail extends React.Component<IProductDetail, {}> {
   render() {
     return (
-      <div className="container collection">
+      <div className="container ProductDetail">
         <Paper>
           <Breadcrumbs currentBreadcrumbs={data.currentBreadcrumbs} />
           <Paper zDepth={1} style={{ float: "left", width: "100%", marginTop: "30px"}}>
             <div className="col-xs-2 sidebar-menu">
               <SidebarMenu {...data.sidebarMenu}/>
             </div>
-            <div className="col-xs-10 category">
-              <Banner {...data.currentBanner}/>
-              {data.categories.map(cat => <Category {...cat}/>)}
+            <div className="col-xs-10 ProductDetail">
+              {/* <Banner {...data.currentBanner}/>
+              {data.categories.map(cat => <Category {...cat}/>)} */}
             </div>
           </Paper>
         </Paper>
@@ -37,4 +37,4 @@ const mapStateToProps = (state: any) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Collection);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
