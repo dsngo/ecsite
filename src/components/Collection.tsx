@@ -23,7 +23,7 @@ class Collection extends React.Component<ICollection, {}> {
           </div>
           <div className="col-xs-10">
             <Banner {...data.currentBanner}/>
-            {data.categories.map(cat => <Category {...cat}/>)}
+            {data.categories.map((cat: any, i: number) => <Category key={`ctgr-${i}`} {...cat}/>)}
           </div>
         </Paper>
       </div>

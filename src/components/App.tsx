@@ -8,6 +8,7 @@ import Navbar from "./Navbar";
 import Landing from "./Landing";
 import Footer from "./Footer";
 import Collection from "./Collection";
+import ProductShow from "./product/Show";
 
 export const App: React.SFC = () => (
   <Router>
@@ -17,7 +18,14 @@ export const App: React.SFC = () => (
           <Navbar />
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route path="/collection" component={Collection} />
+            <Route path="/collections" component={Collection} />
+            <Route
+              path="products/:id"
+              component={(props: any) => {
+                console.log(props);
+                return <ProductShow />;
+              }}
+            />
             <Route component={FoF} />
           </Switch>
           <Footer />

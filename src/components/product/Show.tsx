@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 import Breadcrumbs from "../collection/Breadcrumbs";
 import SidebarMenu from "../collection/SidebarMenu";
 import { data } from "../../data/data";
+import Detail from "./Detail";
+import SimilarProduct from "./SimilarProducts";
+import UserReview from "./UserReviews";
 // Import component UI
 import Paper from "material-ui/Paper";
 

@@ -12,7 +12,7 @@ const SidebarMenu: React.SFC<ISidebarMenu> = props => {
       {mainMenuItems.map(
         (e, i) =>
           subMenuItems && e.item === subMenuItems.refItem ? (
-            <ul>
+            <ul key={`list-${i}`}>
               {subMenuItems.items.map((e, i) => (
                 <Link key={`subSideMenu-${i}`} to={e.path}>
                   {e.item}

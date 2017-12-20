@@ -7,51 +7,42 @@ import { addCartItem } from "../redux/actionCreators";
 
 interface IProductCard {
   initialProduct: any;
+  index: number;
   addCartItem: (item: any) => any;
 }
-const styles: React.CSSProperties = {
-
+const styles: { [key: string]: React.CSSProperties } = {
+  thumbnail: {
+    backgroundPosition: "center right",
+    width: "100%",
+    backgroundSize: "cover",
+    height: "280px",
+  },
 };
 class ProductCard extends React.Component<IProductCard, {}> {
   state = {};
+  handleAddCardItem = (e: any) => {
+    e.preventDefault();
+    this.props.addCartItem(this.props.initialProduct);
+  }
   render() {
-    const { props: { initialProduct } } = this;
-    console.log(initialProduct.albums.portrait[0]);
-    const styleThumbnail = {
-      background: `url(${initialProduct.albums.portrait[0]}) no-repeat`,
-      backgroundPosition: "center right",
-      width: "100%",
-      backgroundSize: "cover",
-      height: "280px",
-    }
+    const { props: { initialProduct, index }, handleAddCardItem } = this;
+    const styleThumbnail = { ...styles.thumbnail, background: `url(${initialProduct.albums.portrait[0]}) no-repeat` };
     return (
-      <Link to={`/products/${initialProduct.permalink}`}>
-        <Card className="col-xs-4 product-card">
-          {/* <CardHeader title="URL Avatar" subtitle="Subtitle" avatar="images/jsa-128.jpg" />
-          <CardMedia overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}>
-            <img src="images/nature-600-337.jpg" alt="" />
-          </CardMedia>
-          <CardTitle title="Card title" subtitle="Card subtitle" />
-          <CardText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla
-            facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis
-            quis lacus id, pellentesque lobortis odio.
-          </CardText>
-          <CardActions>
-            <FlatButton label="Action1" />
-            <FlatButton label="Action2" />
-          </CardActions> */}
-          <div className="thumbnail" style={styleThumbnail}></div>
-          <div className="detail">
-            <div className="col-xs-7 product-title">
-              {initialProduct.title}
-            </div>
-            <div className="col-xs-5 product-price">
-              {initialProduct.price}$
-            </div>
-          </div>
-        </Card>
-      </Link>
+      <div>
+        <Link to={`/products/${initialProduct.permalink}`}>
+          <Card className="col-xs-4 product-card">
+            <CardMedia overlay={<CardTitle title={initialProduct.title} subtitle={initialProduct.details.additional_details[0]} />}>
+              <img src={initialProduct.albums.portrait[0]} alt="" />
+            </CardMedia>
+            <CardText>
+              {initialProduct.styles[index].title}
+            </CardText>
+            <CardActions>
+                <FlatButton onClick={handleAddCardItem} label="Action1" />
+            </CardActions>
+          </Card>
+        </Link>
+      </div>
     );
   }
 }
