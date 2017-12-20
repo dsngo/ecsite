@@ -10,8 +10,10 @@ const styles: React.CSSProperties = {};
 
 const Banner: React.SFC<IBanner> = ({ backgroundImg, title, text }) => (
     <div style={{backgroundImage: `url(${backgroundImg})`}} className="banner">
-      <h1>{title}</h1>
-      {text && <p>{text}</p>}
+      <div className="banner-content">
+        <h1>{title}</h1>
+        {text && <p>{text}</p>}
+      </div>
     </div>
 );
 export default Banner;
