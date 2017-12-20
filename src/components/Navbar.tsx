@@ -114,7 +114,9 @@ class Navbar extends React.Component<INavbar, {}> {
         <Link to="/about">
           <FlatButton label="About" />
         </Link>
-        <Link to="/">ECSITE</Link>
+        <div className="title-site">
+          <Link to="/">ECSITE</Link>
+        </div>
         {isLogin ? (
           <Link to="/account/info">`Hi, ${username}`</Link>
         ) : (
