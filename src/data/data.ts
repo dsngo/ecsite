@@ -90,6 +90,9 @@ export const data = {
             ["US Pant Size", "00", "0", "2", "4", "6", "8", "10", "12", "14"],
             ["Waistband Top Edge", "26 3/4", "27 3/4", "28 3/4", "29 3/4", "30 3/4", "31 3/4", "32 3/4"],
           ],
+          styles: [
+            {backgroundColor: "#8CBED6", title: "Bright Blue / Navy", className: "product-page__color-swatch", }
+          ]
         },
       ],
     },
