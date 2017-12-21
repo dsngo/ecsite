@@ -61,3 +61,19 @@ export const logUserIn = (data: any) => async (dispatch: any, getState: () => an
     });
   }
 };
+
+// UPDATE FIRST LEVEL OF STORE
+
+export const updateFirstStoreLevel = (key: string, value: any) => ({
+  key,
+  value,
+  type: "UPDATE_FIRST_STORE_LEVEL",
+})
+
+export const updateSecondStoreLevel = (storeKey: string, idKey: number, key: string, value: any) => ({
+  storeKey,
+  idKey,
+  key,
+  value,
+  type: "UPDATE_SECOND_STORE_LEVEL",
+})

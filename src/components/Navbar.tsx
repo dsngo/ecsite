@@ -69,6 +69,16 @@ const styles: { [key: string]: React.CSSProperties } = {
   }
 };
 
+class CardHover extends React.Component<{items:{title: string, size: string, color: string, price: number}[]},{}> {
+  render() {
+    return (
+      <Paper>
+        
+      </Paper>
+    )
+  }
+}
+
 class Navbar extends React.Component<INavbar, {}> {
   static defaultProps = {
     loginPopup: false,
@@ -106,8 +116,7 @@ class Navbar extends React.Component<INavbar, {}> {
         <Link
           to="/collections/mens-all"
           onMouseEnter={e => hoverNavbarItem(true, "men")}
-          onMouseLeave={e => hoverNavbarItem(true, navbarCurrentCategory)}
-          
+          onMouseLeave={e => hoverNavbarItem(true, navbarCurrentCategory)}          
         >
           <FlatButton label="Men" />
         </Link>
