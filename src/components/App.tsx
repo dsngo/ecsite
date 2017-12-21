@@ -21,8 +21,14 @@ export const App: React.SFC = () => (
             <Route path="/collections" component={Collection} />
             <Route
               path="/products/:id"
+<<<<<<< HEAD
               component={(props: any) => {
                 return <ProductShow />;
+=======
+              component={(props:any) => {
+                console.log(props);
+                return <ProductShow productPermalink={props.match.params.id} />;
+>>>>>>> fb0a7aa29a9e59f06b3f9cdd7b088a15811a7638
               }}
             />
             <Route component={FoF} />

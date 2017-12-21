@@ -11,12 +11,20 @@ import { data } from "../../data/data";
 import Paper from "material-ui/Paper";
 import FlatButton from "material-ui/FlatButton";
 
-interface IProductShow { }
-
+interface IProductShow {
+  productPermalink: string;
+ }
+ const styles: { [key: string]: React.CSSProperties } = {
+};
 class ProductShow extends React.Component<IProductShow, {}> {
+  state ={
+    focus: 0
+  }
+    handleUpdateState =(key: string, value:any) => this.setState((prevState)=>({...prevState, [key]: value}))
     render() {
         const product = data.product;
-        console.log(product);
+        const foundProd = data.categories[0].products[0]; // for test data
+        
         return (
             <div className="container collection">
                 <Paper>
@@ -32,10 +40,13 @@ class ProductShow extends React.Component<IProductShow, {}> {
                                         <div className="sticky-thumb-container">
                                             <div className="sticky-thumb-items">
                                             {
-                                                product.images.map((img) => (
-                                                    <div className="thumb-item">
-                                                        <img src={img} />
-                                                    </div>
+                                                // product.images.map((img) => (
+                                                //     <div className="thumb-item">
+                                                //         <img src={img} />
+                                                //     </div>
+                                                // ))
+                                                product.images.map((e,i) => (
+                                                  <div key={`timg-${i}`} className={`${foundProd.styledClass} ${this.state.focus === i ? "thumb-img-focus":""}`} ><img onClick={()=>this.handleUpdateState("focus", i)} src={e} alt="" /></div>                
                                                 ))
                                             }
                                             </div>
@@ -49,6 +60,8 @@ class ProductShow extends React.Component<IProductShow, {}> {
                                                         <img src={img} />
                                                     </div>
                                                 ))
+                                                
+                                                
                                             }
                                         </div>
                                     </div>

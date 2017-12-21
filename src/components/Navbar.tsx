@@ -70,6 +70,10 @@ const styles: { [key: string]: React.CSSProperties } = {
 };
 
 class Navbar extends React.Component<INavbar, {}> {
+  static defaultProps = {
+    loginPopup: false,
+    signupPopup: false,
+  }
   state = {
     openNavbarCollection: false,
     navbarCurrentCategory: ""

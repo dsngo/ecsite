@@ -1,0 +1,15 @@
+.thumbnail_product_img {
+  width: 43.2198px;
+  display: block;
+  margin-bottom: 5px;
+  &:hover {
+    -moz-outline: 1px solid #881c40;
+    -webkit-outline: 1px solid #881c40;
+    outline: 1px solid #881c40;
+  }
+}
+.thumb-img-focus {
+  -moz-outline: 1px solid #881c40;
+  -webkit-outline: 1px solid #881c40;
+  outline: 1px solid #881c40;
+}

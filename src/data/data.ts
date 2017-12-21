@@ -14,20 +14,20 @@ export const data = {
     featuredCategories: [
       {
         item: "Women All",
-        path: "/women-all"
+        path: "/women-all",
       },
       {
         item: "New Arrivals",
-        path: "/new-arrivals"
+        path: "/new-arrivals",
       },
       {
         item: "Gift for her",
-        path: "/gift-for-her"
+        path: "/gift-for-her",
       },
       {
         item: "Gift for him",
-        path: "/gift-for-him"
-      }
+        path: "/gift-for-him",
+      },
     ],
     mainMenuItems: [
       { item: "Tees", path: "/test1" },
@@ -42,21 +42,31 @@ export const data = {
     },
   },
   product: {
-    images: ["https://everlane.imgix.net/i/4c7a58ee_6a23.jpg?dpr=1&w=1200&h=1200&q=65", "https://everlane.imgix.net/i/cebcacec_b25b.jpg?dpr=1&w=1200&h=1200&q=65", "https://everlane.imgix.net/i/7315a850_0064.jpg?dpr=1&w=1200&h=1200&q=65",
-  "https://everlane-2.imgix.net/i/4a6d8024_eb8c.jpg?dpr=1&w=1200&h=1200&q=65", "https://everlane.imgix.net/i/e10d30d4_6786.jpg?dpr=1&w=1200&h=1200&q=65", "https://everlane-2.imgix.net/i/bb537bd7_43ca.jpg?dpr=1&w=1200&h=1200&q=65"],
+    images: [
+      "https://everlane.imgix.net/i/4c7a58ee_6a23.jpg?dpr=1&w=1200&h=1200&q=65",
+      "https://everlane.imgix.net/i/cebcacec_b25b.jpg?dpr=1&w=1200&h=1200&q=65",
+      "https://everlane.imgix.net/i/7315a850_0064.jpg?dpr=1&w=1200&h=1200&q=65",
+      "https://everlane-2.imgix.net/i/4a6d8024_eb8c.jpg?dpr=1&w=1200&h=1200&q=65",
+      "https://everlane.imgix.net/i/e10d30d4_6786.jpg?dpr=1&w=1200&h=1200&q=65",
+      "https://everlane-2.imgix.net/i/bb537bd7_43ca.jpg?dpr=1&w=1200&h=1200&q=65",
+    ],
     name: "The Cashmere Crew",
     price: 100,
     traditionalPrice: 210,
-    colors: [ {
-      name: "Charcoal",
-      code: "#5D5D5D"
-    }, {
-      name: "Black",
-      code: "#1C1C1C"
-    }, {
-      name: "Camel",
-      code: "#BA9565"
-    }],
+    colors: [
+      {
+        name: "Charcoal",
+        code: "#5D5D5D",
+      },
+      {
+        name: "Black",
+        code: "#1C1C1C",
+      },
+      {
+        name: "Camel",
+        code: "#BA9565",
+      },
+    ],
     sizes: ["XXS", "XS", "S", "M", "L", "XL"],
     details: {
       model: "Model is 5'10. Wearing size S",
@@ -65,14 +75,25 @@ export const data = {
       signature: "Signature reversed stitching deatil on the cuffs",
       from: "Made in Dongguan, China",
     },
-    description: "It doesn't get more classic than a crew. This crewneck sweater is warm, soft to the touch, and lightweight with a slightly relaxed fit for an easy, timeless look. Did we mention it's Grade-A Mongolian cashmere?",
+    description:
+      "It doesn't get more classic than a crew. This crewneck sweater is warm, soft to the touch, and lightweight with a slightly relaxed fit for an easy, timeless look. Did we mention it's Grade-A Mongolian cashmere?",
   },
   categories: [
     {
       title: "The Italian GoWeave Classic Blazer",
       products: [
         {
-        albums: { portrait: ["https://everlane-2.imgix.net/i/39815c51_815c.jpg", "https://everlane-2.imgix.net/i/a1f6bf29_5056.jpg?dpr=1&w=362&h=452.5&q=65&fit=crop&crop=faces"] },
+          albums: {
+            portrait: [
+              "https://everlane-2.imgix.net/i/39815c51_815c.jpg",
+              "https://everlane-2.imgix.net/i/a1f6bf29_5056.jpg?dpr=1&w=362&h=452.5&q=65&fit=crop&crop=faces",
+            ],
+            gallery: [
+              "https://everlane.imgix.net/i/8a0650ae_0d06.jpg?dpr=1.5&w=1200&h=1200&q=65",
+              "https://everlane.imgix.net/i/7f1f3f6c_016c.jpg?dpr=1.5&w=1200&h=1200&q=65",
+              "https://everlane-2.imgix.net/i/2653c6a8_8ca5.jpg?dpr=1.5&w=1200&h=1200&q=65",
+            ],
+          },
           details: {
             additional_details: [
               "Back vent",
@@ -81,6 +102,7 @@ export const data = {
             description:
               "A truly iconic blazer. Tailored for a slim silhouette (with subtle stretch for the perfect fit), this blazer is made from wrinkle-resistant Italian GoWeave, so you can wear it all day long",
           },
+          styledClass: "thumbnail_product_img",
           title: "The Cashmere Crew",
           price: 125,
           gender: "female",
@@ -90,9 +112,7 @@ export const data = {
             ["US Pant Size", "00", "0", "2", "4", "6", "8", "10", "12", "14"],
             ["Waistband Top Edge", "26 3/4", "27 3/4", "28 3/4", "29 3/4", "30 3/4", "31 3/4", "32 3/4"],
           ],
-          styles: [
-            {backgroundColor: "#8CBED6", title: "Bright Blue / Navy", className: "product-page__color-swatch", }
-          ]
+          styles: [{ backgroundColor: "#8CBED6", title: "Bright Blue / Navy", className: "product-page__color-swatch" }],
         },
       ],
     },
