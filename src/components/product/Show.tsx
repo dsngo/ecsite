@@ -10,7 +10,7 @@ import { data } from "../../data/data";
 // Import component UI
 import Paper from "material-ui/Paper";
 import FlatButton from "material-ui/FlatButton";
-
+import SimilarProducts from "./SimilarProducts";
 interface IProductShow {
   productPermalink: string;
 }
