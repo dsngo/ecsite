@@ -55,8 +55,8 @@ class ProductShow extends React.Component<IProductShow, {}> {
                                     <div className="product-gallery-assets">
                                         <div className="product-gallery-assets-container">
                                             {
-                                                product.images.map((img) => (
-                                                    <div className="image-item">
+                                                product.images.map((img, index) => (
+                                                    <div className="image-item" key={`featuredImg-${index}`}>
                                                         <img src={img} />
                                                     </div>
                                                 ))
@@ -79,7 +79,7 @@ class ProductShow extends React.Component<IProductShow, {}> {
                                         </div>
                                         {
                                             product.colors.map((color, idx) => (
-                                                <a className="product-color" style={{backgroundColor: color.code}}></a>
+                                                <a className="product-color" key={`colorProduct-${idx}`} style={{backgroundColor: color.code}}></a>
                                             ))
                                         }
                                     </div>
@@ -87,8 +87,8 @@ class ProductShow extends React.Component<IProductShow, {}> {
                                         <div><Link to="#">Size Guide</Link></div>
                                         <div className="size-list">
                                             {
-                                                product.sizes.map((size) => (
-                                                    <div className="product-size">
+                                                product.sizes.map((size, idx) => (
+                                                    <div className="product-size" key={`sizeProduct-${idx}`}>
                                                         {size}
                                                     </div>
                                                 ))
