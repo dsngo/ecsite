@@ -20,9 +20,8 @@ export const App: React.SFC = () => (
             <Route exact path="/" component={Landing} />
             <Route path="/collections" component={Collection} />
             <Route
-              path="products/:id"
+              path="/products/:id"
               component={(props: any) => {
-                console.log(props);
                 return <ProductShow />;
               }}
             />

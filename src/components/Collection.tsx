@@ -18,10 +18,10 @@ class Collection extends React.Component<ICollection, {}> {
       <div className="container collection">
         <Paper>
           <Breadcrumbs currentBreadcrumbs={data.currentBreadcrumbs} />
-          <div className="col-xs-2">
+          <div className="col-xs-2 sidebar-menu">
             <SidebarMenu {...data.sidebarMenu}/>
           </div>
-          <div className="col-xs-10">
+          <div className="col-xs-10 category">
             <Banner {...data.currentBanner}/>
             {data.categories.map((cat: any, i: number) => <Category key={`ctgr-${i}`} {...cat}/>)}
           </div>
