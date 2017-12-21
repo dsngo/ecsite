@@ -16,7 +16,7 @@ import { navbarMen, navbarWomen } from "../data/navbarCollectionData";
 import Subheader from "material-ui/Subheader";
 
 interface INavbar {
-  isLogin: boolean;
+  isLoggedin: boolean;
   loginPopup: boolean;
   signupPopup: boolean;
   username: string;
@@ -30,15 +30,15 @@ const styles: { [key: string]: React.CSSProperties } = {
     textAlign: "center",
     top: 40,
     width: "100%",
-    zIndex: 10
+    zIndex: 10,
   },
   navbarAlign: {
     display: "table",
-    margin: "0 auto"
+    margin: "0 auto",
   },
   collectionItems: {},
   ul: {
-    paddingLeft: "0"
+    paddingLeft: "0",
   },
   li: {
     fontFamily: "graphik,Helvetica Neue,Helvetica,Arial,'sans-serif'",
@@ -51,58 +51,54 @@ const styles: { [key: string]: React.CSSProperties } = {
     display: "block",
     marginTop: "0",
     paddingLeft: "0",
-    cursor: "pointer"
+    cursor: "pointer",
   },
   section: {
     textAlign: "left",
     float: "left",
-    marginRight: "45px"
+    marginRight: "45px",
   },
   navbarData: {
     textAlign: "left",
     float: "left",
-    marginRight: "45px"
+    marginRight: "45px",
   },
   navbarColHeader: {
     fontWeight: 700,
-    paddingLeft: "0"
-  }
+    paddingLeft: "0",
+  },
 };
 
-class CardHover extends React.Component<{items:{title: string, size: string, color: string, price: number}[]},{}> {
+class CardHover extends React.Component<{ items: { title: string; size: string; color: string; price: number }[] }, {}> {
   render() {
-    return (
-      <Paper>
-        
-      </Paper>
-    )
+    return <Paper />;
   }
 }
 
 class Navbar extends React.Component<INavbar, {}> {
   static defaultProps = {
+    isLoggedin: true,
     loginPopup: false,
     signupPopup: false,
-  }
+  };
   state = {
     openNavbarCollection: false,
-    navbarCurrentCategory: ""
+    navbarCurrentCategory: "",
   };
   hoverNavbarItem = (open: boolean, category: string) => {
     console.log(category);
     this.setState(prevState => ({
       ...prevState,
       openNavbarCollection: open,
-      navbarCurrentCategory: category
+      navbarCurrentCategory: category,
     }));
   };
   render() {
-    const navbarData =
-      this.state.navbarCurrentCategory === "women" ? navbarWomen : navbarMen;
+    const navbarData = this.state.navbarCurrentCategory === "women" ? navbarWomen : navbarMen;
     const {
       hoverNavbarItem,
-      props: { username, isLogin, loginPopup, signupPopup, handleOpenPopup },
-      state: { openNavbarCollection, navbarCurrentCategory }
+      props: { username, isLoggedin, loginPopup, signupPopup, handleOpenPopup },
+      state: { openNavbarCollection, navbarCurrentCategory },
     } = this;
     return (
       <Paper className="navbar">
@@ -116,105 +112,89 @@ class Navbar extends React.Component<INavbar, {}> {
         <Link
           to="/collections/mens-all"
           onMouseEnter={e => hoverNavbarItem(true, "men")}
-          onMouseLeave={e => hoverNavbarItem(true, navbarCurrentCategory)}          
+          onMouseLeave={e => hoverNavbarItem(true, navbarCurrentCategory)}
         >
           <FlatButton label="Men" />
         </Link>
-        <Link to="/visit-us"
-          >
+        <Link to="/visit-us">
           <FlatButton label="Visit us" />
         </Link>
-        <Link to="/factories"
-          >
+        <Link to="/factories">
           <FlatButton label="Factories" />
         </Link>
-        <Link to="/about"
-          >
+        <Link to="/about">
           <FlatButton label="About" />
         </Link>
         <div className="title-site">
           <Link to="/">ECSITE</Link>
         </div>
-        {isLogin ? (
-          <Link to="/account/info">`Hi, ${username}`</Link>
+        {isLoggedin ? (
+          <div className="btn-right">
+            <Link to="/account/info">
+              <FlatButton label={`Hi, ${username || "Daniel"}`} />
+            </Link>
+            <div style={{display: "inline-block", padding: "5px 5px 0"}}>
+              <ShoppingCartIcon color="white" stroke="black" />
+            </div>
+          </div>
         ) : (
-            <span>
+          <span>
+            <FlatButton onClick={() => handleOpenPopup("signupPopup", true)} label="Sign Up" className="btn-right" />
+            <FlatButton onClick={() => handleOpenPopup("loginPopup", true)} label="Login" className="btn-right" />
+            <Dialog open={loginPopup || false} onRequestClose={() => handleOpenPopup("loginPopup", false)}>
+              <LoginPopup />
+            </Dialog>
+            <Dialog open={signupPopup || false} onRequestClose={() => handleOpenPopup("signupPopup", false)}>
               <FlatButton onClick={() => handleOpenPopup("signupPopup", true)} label="Sign Up" className="btn-right" />
               <FlatButton onClick={() => handleOpenPopup("loginPopup", true)} label="Login" className="btn-right" />
-              <Dialog open={loginPopup || false} onRequestClose={() => handleOpenPopup("loginPopup", false)}>
-                <LoginPopup />
-              </Dialog>
-              <Dialog open={signupPopup || false} onRequestClose={() => handleOpenPopup("signupPopup", false)}>
-                <FlatButton
-                  onClick={() => handleOpenPopup("signupPopup", true)}
-                  label="Sign Up"
-                  className="btn-right"
-                />
-                <FlatButton
-                  onClick={() => handleOpenPopup("loginPopup", true)}
-                  label="Login"
-                  className="btn-right"
-                />
-                </Dialog>
-                <Dialog
-                  open={loginPopup}
-                  onRequestClose={() => handleOpenPopup("loginPopup", false)}
-                >
-                  <LoginPopup />
-                </Dialog>
-                <Dialog
-                  open={signupPopup}
-                  onRequestClose={() => handleOpenPopup("signupPopup", false)}
-                >
-                  <SignupPopup />
-                </Dialog>
-          </span>)}
-              {openNavbarCollection && (
-                <Paper
-                  style={styles.navbarCollection}
-                  onMouseEnter={e => hoverNavbarItem(true, navbarCurrentCategory)}
-                  onMouseLeave={e => hoverNavbarItem(false, navbarCurrentCategory)}
-                >
-                  <div style={styles.navbarAlign}>
-                    {navbarData.map((cat: any, i: any) => (
-                      <Paper
-                        zDepth={0}
-                        style={styles.navbarData}
-                        key={`navbarD-${i}`}
-                      >
-                        <Subheader style={styles.navbarColHeader}>
-                          {cat.category}
-                        </Subheader>
-                        <div style={styles.section}>
-                          <ul style={styles.ul}>
-                            {cat.child.map((child: any, i: number) => (
-                              <li style={styles.li} key={`cat-${i}`}>
-                                {child.name}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </Paper>
-                    ))}
+            </Dialog>
+            <Dialog open={loginPopup} onRequestClose={() => handleOpenPopup("loginPopup", false)}>
+              <LoginPopup />
+            </Dialog>
+            <Dialog open={signupPopup} onRequestClose={() => handleOpenPopup("signupPopup", false)}>
+              <SignupPopup />
+            </Dialog>
+          </span>
+        )}
+        {openNavbarCollection && (
+          <Paper
+            style={styles.navbarCollection}
+            onMouseEnter={e => hoverNavbarItem(true, navbarCurrentCategory)}
+            onMouseLeave={e => hoverNavbarItem(false, navbarCurrentCategory)}
+          >
+            <div style={styles.navbarAlign}>
+              {navbarData.map((cat: any, i: any) => (
+                <Paper zDepth={0} style={styles.navbarData} key={`navbarD-${i}`}>
+                  <Subheader style={styles.navbarColHeader}>{cat.category}</Subheader>
+                  <div style={styles.section}>
+                    <ul style={styles.ul}>
+                      {cat.child.map((child: any, i: number) => (
+                        <li style={styles.li} key={`cat-${i}`}>
+                          {child.name}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </Paper>
-              )}
+              ))}
+            </div>
+          </Paper>
+        )}
       </Paper>
-          );
-        }
+    );
+  }
 }
 
 const mapStateToProps = (state: any) => ({
-          isLogin: state.isLogin,
+  isLoggedin: state.isLoggedin,
   username: state.username,
   loginPopup: state.popupStatus.loginPopup,
   signupPopup: state.popupStatus.signupPopup,
-  cartNumberOfItems: state.cartItems.length
+  cartNumberOfItems: state.cartItems.length,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-          handleOpenPopup: (popupName: string, isOpen: boolean) =>
-    dispatch(handleOpenPopup(popupName, isOpen))
+  handleOpenPopup: (popupName: string, isOpen: boolean) => dispatch(handleOpenPopup(popupName, isOpen)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
