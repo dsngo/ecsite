@@ -21,6 +21,10 @@ img {
     max-width: 100%;
 }
 
+html, body {
+    min-width: 976px;
+}
+
 .homepage {
     padding-top: 40px;
     .carosel {
@@ -145,6 +149,7 @@ img {
     .navbar-item {
         height: 40px !important;
     }
+    min-width: 976px;
     .btn-right {
         float: right;
     }

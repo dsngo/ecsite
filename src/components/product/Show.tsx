@@ -10,7 +10,7 @@ import { data } from "../../data/data";
 // Import component UI
 import Paper from "material-ui/Paper";
 import FlatButton from "material-ui/FlatButton";
-
+import SimilarProducts from "./SimilarProducts";
 interface IProductShow {
   productPermalink: string;
  }
@@ -108,6 +108,7 @@ class ProductShow extends React.Component<IProductShow, {}> {
                                 </div>
                             </div>
                         </div>
+                        <SimilarProducts products={[]}/>
                     </Paper>
                 </Paper>
             </div>
