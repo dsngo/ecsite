@@ -79,6 +79,7 @@ class Navbar extends React.Component<INavbar, {}> {
     navbarCurrentCategory: ""
   };
   hoverNavbarItem = (open: boolean, category: string) => {
+    console.log(category);
     this.setState(prevState => ({
       ...prevState,
       openNavbarCollection: open,
@@ -106,16 +107,20 @@ class Navbar extends React.Component<INavbar, {}> {
           to="/collections/mens-all"
           onMouseEnter={e => hoverNavbarItem(true, "men")}
           onMouseLeave={e => hoverNavbarItem(true, navbarCurrentCategory)}
+          
         >
           <FlatButton label="Men" />
         </Link>
-        <Link to="/visit-us">
+        <Link to="/visit-us"
+          >
           <FlatButton label="Visit us" />
         </Link>
-        <Link to="/factories">
+        <Link to="/factories"
+          >
           <FlatButton label="Factories" />
         </Link>
-        <Link to="/about">
+        <Link to="/about"
+          >
           <FlatButton label="About" />
         </Link>
         <div className="title-site">

@@ -154,19 +154,23 @@ img {
     z-index: 1;
 
     .title-site {
-        width: 100%;
-        text-align: center;
+        // right: 45%;
+        margin: 0 auto;
         position: absolute;
         top: 8px;
         font-size: 18px;
         font-weight: bold;
         text-decoration: none;
         color: black;
+        right: calc(50% - 18px);
     }
     a {
         color: black;
         &:hover {
             text-decoration: none;
+        }
+        button {
+            height: 100% !important;
         }
     }
 
