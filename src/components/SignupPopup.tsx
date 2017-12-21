@@ -27,8 +27,15 @@ class SignupPopup extends React.Component<{}, {}> {
       state: { email, password, fullname, preferStyle },
     } = this;
     return (
-      <Paper>
-        <List>
+      <Paper zDepth={0}>
+        <div className="login-modal">
+          <div className="welcome-text">
+          <div style={{fontSize: "20px", padding: "20px"}}>Get a sneak peek.</div>
+
+          Sign up to see what we’ve been working on and claim first dibs on all new product launches. 
+          Stay in the know, on the go.
+
+          </div>
           <TextField
             value={email}
             onChange={(e: any) => handleChangeUserInfo("email", e.target.value)}
@@ -36,57 +43,9 @@ class SignupPopup extends React.Component<{}, {}> {
             floatingLabelText="Email Address"
             underlineFocusStyle={{ borderColor: grey800 }}
             floatingLabelStyle={{ color: grey800 }}
+            fullWidth
           />
-          <br />
-          <TextField
-            value={fullname}
-            onChange={(e: any) => handleChangeUserInfo("fullname", e.target.value)}
-            hintText="Please enter your full name."
-            floatingLabelText="Full Name"
-            underlineFocusStyle={{ borderColor: grey800 }}
-            floatingLabelStyle={{ color: grey800 }}
-          />
-          <br />
-          <TextField
-            value={password}
-            onChange={(e: any) => handleChangeUserInfo("password", e.target.value)}
-            hintText="Please enter your password."
-            floatingLabelText="Password"
-            type="password"
-            underlineFocusStyle={{ borderColor: grey800 }}
-            floatingLabelStyle={{ color: grey800 }}
-          />
-          <br />
-        </List>
-        <List>
-          <Subheader>What styles are you interested in?</Subheader>
-          <ListItem
-            primaryText="Women"
-            leftCheckbox={
-              <Checkbox
-                iconStyle={{ fill: grey800 }}
-                checked={preferStyle.women}
-                onCheck={() => handleChangePreferStyle("women")}
-              />
-            }
-          />
-          <ListItem
-            primaryText="Men"
-            leftCheckbox={
-              <Checkbox iconStyle={{ fill: grey800 }} checked={preferStyle.men} onCheck={() => handleChangePreferStyle("men")} />
-            }
-          />
-          <ListItem
-            primaryText="Both"
-            leftCheckbox={
-              <Checkbox
-                iconStyle={{ fill: grey800 }}
-                checked={preferStyle.both}
-                onCheck={() => handleChangePreferStyle("both")}
-              />
-            }
-          />
-        </List>
+        </div>
         <PopupButton {...{ createUserInfo: this.state }} />
       </Paper>
     );

@@ -34,8 +34,7 @@ const SidebarMenu: React.SFC<ISidebarMenu> = props => {
                <div key={`subCat-${i}`}>
                <Link key={`sideMenu-${i}`} to={e.path}>
                  {e.item}
-               </Link>
-               </div>
+               </Link></div>
              ),
          )}
        </div>
