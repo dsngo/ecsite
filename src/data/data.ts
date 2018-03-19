@@ -102,7 +102,103 @@ export const data = {
             description:
               "A truly iconic blazer. Tailored for a slim silhouette (with subtle stretch for the perfect fit), this blazer is made from wrinkle-resistant Italian GoWeave, so you can wear it all day long",
           },
-          styledClass: "thumbnail_product_img",
+          styledClass: "thumbnail-product-img",
+          title: "The Cashmere Crew",
+          price: 125,
+          gender: "female",
+          permalink: "womens-italian-goweave-classic-blazer",
+          sizeChart: [
+            ["MEASUREMENTS", "24", "25", "26", "27", "28", "29", "30", "31", "32"],
+            ["US Pant Size", "00", "0", "2", "4", "6", "8", "10", "12", "14"],
+            ["Waistband Top Edge", "26 3/4", "27 3/4", "28 3/4", "29 3/4", "30 3/4", "31 3/4", "32 3/4"],
+          ],
+          styles: [{ backgroundColor: "#8CBED6", title: "Bright Blue / Navy", className: "product-page__color-swatch" }],
+        },
+        {
+          albums: {
+            portrait: [
+              "https://everlane-2.imgix.net/i/39815c51_815c.jpg",
+              "https://everlane-2.imgix.net/i/a1f6bf29_5056.jpg?dpr=1&w=362&h=452.5&q=65&fit=crop&crop=faces",
+            ],
+            gallery: [
+              "https://everlane.imgix.net/i/8a0650ae_0d06.jpg?dpr=1.5&w=1200&h=1200&q=65",
+              "https://everlane.imgix.net/i/7f1f3f6c_016c.jpg?dpr=1.5&w=1200&h=1200&q=65",
+              "https://everlane-2.imgix.net/i/2653c6a8_8ca5.jpg?dpr=1.5&w=1200&h=1200&q=65",
+            ],
+          },
+          details: {
+            additional_details: [
+              "Back vent",
+              "Located just south of Ho Chi Minh City, Poong In is an industry-leading factory that offers competitive pay and works with Better Work",
+            ],
+            description:
+              "A truly iconic blazer. Tailored for a slim silhouette (with subtle stretch for the perfect fit), this blazer is made from wrinkle-resistant Italian GoWeave, so you can wear it all day long",
+          },
+          styledClass: "thumbnail-product-img",
+          title: "The Cashmere Crew",
+          price: 125,
+          gender: "female",
+          permalink: "womens-italian-goweave-classic-blazer",
+          sizeChart: [
+            ["MEASUREMENTS", "24", "25", "26", "27", "28", "29", "30", "31", "32"],
+            ["US Pant Size", "00", "0", "2", "4", "6", "8", "10", "12", "14"],
+            ["Waistband Top Edge", "26 3/4", "27 3/4", "28 3/4", "29 3/4", "30 3/4", "31 3/4", "32 3/4"],
+          ],
+          styles: [{ backgroundColor: "#8CBED6", title: "Bright Blue / Navy", className: "product-page__color-swatch" }],
+        },
+        {
+          albums: {
+            portrait: [
+              "https://everlane-2.imgix.net/i/39815c51_815c.jpg",
+              "https://everlane-2.imgix.net/i/a1f6bf29_5056.jpg?dpr=1&w=362&h=452.5&q=65&fit=crop&crop=faces",
+            ],
+            gallery: [
+              "https://everlane.imgix.net/i/8a0650ae_0d06.jpg?dpr=1.5&w=1200&h=1200&q=65",
+              "https://everlane.imgix.net/i/7f1f3f6c_016c.jpg?dpr=1.5&w=1200&h=1200&q=65",
+              "https://everlane-2.imgix.net/i/2653c6a8_8ca5.jpg?dpr=1.5&w=1200&h=1200&q=65",
+            ],
+          },
+          details: {
+            additional_details: [
+              "Back vent",
+              "Located just south of Ho Chi Minh City, Poong In is an industry-leading factory that offers competitive pay and works with Better Work",
+            ],
+            description:
+              "A truly iconic blazer. Tailored for a slim silhouette (with subtle stretch for the perfect fit), this blazer is made from wrinkle-resistant Italian GoWeave, so you can wear it all day long",
+          },
+          styledClass: "thumbnail-product-img",
+          title: "The Cashmere Crew",
+          price: 125,
+          gender: "female",
+          permalink: "womens-italian-goweave-classic-blazer",
+          sizeChart: [
+            ["MEASUREMENTS", "24", "25", "26", "27", "28", "29", "30", "31", "32"],
+            ["US Pant Size", "00", "0", "2", "4", "6", "8", "10", "12", "14"],
+            ["Waistband Top Edge", "26 3/4", "27 3/4", "28 3/4", "29 3/4", "30 3/4", "31 3/4", "32 3/4"],
+          ],
+          styles: [{ backgroundColor: "#8CBED6", title: "Bright Blue / Navy", className: "product-page__color-swatch" }],
+        },
+        {
+          albums: {
+            portrait: [
+              "https://everlane-2.imgix.net/i/39815c51_815c.jpg",
+              "https://everlane-2.imgix.net/i/a1f6bf29_5056.jpg?dpr=1&w=362&h=452.5&q=65&fit=crop&crop=faces",
+            ],
+            gallery: [
+              "https://everlane.imgix.net/i/8a0650ae_0d06.jpg?dpr=1.5&w=1200&h=1200&q=65",
+              "https://everlane.imgix.net/i/7f1f3f6c_016c.jpg?dpr=1.5&w=1200&h=1200&q=65",
+              "https://everlane-2.imgix.net/i/2653c6a8_8ca5.jpg?dpr=1.5&w=1200&h=1200&q=65",
+            ],
+          },
+          details: {
+            additional_details: [
+              "Back vent",
+              "Located just south of Ho Chi Minh City, Poong In is an industry-leading factory that offers competitive pay and works with Better Work",
+            ],
+            description:
+              "A truly iconic blazer. Tailored for a slim silhouette (with subtle stretch for the perfect fit), this blazer is made from wrinkle-resistant Italian GoWeave, so you can wear it all day long",
+          },
+          styledClass: "thumbnail-product-img",
           title: "The Cashmere Crew",
           price: 125,
           gender: "female",

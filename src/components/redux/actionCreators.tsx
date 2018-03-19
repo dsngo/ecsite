@@ -11,9 +11,22 @@ export const addCartItem = (item: any) => ({ item, type: "ADD_CART_ITEM" });
 export const removeCartItem = (itemIndex: number) => ({ itemIndex, type: "REMOVE_CART_ITEM" });
 export const clearCartItem = () => ({ type: "CLEAR_CART_ITEMS" });
 
+// FAVOURITE
+
+export const addFavoriteItem = (item: any) => ({
+  item,
+  type: "ADD_FAVORITE_ITEM",
+});
+export const removeFavoriteItem = (itemId: number) => ({
+  itemId,
+  type: "REMOVE_FAVORITE_ITEM",
+});
 
 // HANDLE POPUP
-export const handleOpenPopup = (popupName: string, isOpen: boolean) => ({ popupName, type: "UPDATE_POPUP_STATE", [popupName]: isOpen });
+export const handleOpenPopup = (popupName: string, isOpen: boolean) => ({
+  type: "UPDATE_POPUP_STATUS",
+  popupName: isOpen,
+});
 
 // SERVER API
 export const createNewUser = (data: any) => async (dispatch: any) => {
@@ -68,7 +81,7 @@ export const updateFirstStoreLevel = (key: string, value: any) => ({
   key,
   value,
   type: "UPDATE_FIRST_STORE_LEVEL",
-})
+});
 
 export const updateSecondStoreLevel = (storeKey: string, idKey: number, key: string, value: any) => ({
   storeKey,
@@ -76,4 +89,4 @@ export const updateSecondStoreLevel = (storeKey: string, idKey: number, key: str
   key,
   value,
   type: "UPDATE_SECOND_STORE_LEVEL",
-})
+});
