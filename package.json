@@ -5,14 +5,14 @@
   "license": "MIT",
   "scripts": {
     "prebuild:p": "find app/* ! \\( -name assets -o -name img -o -name \"*.png\" \\) -exec rm -rf {} +",
-    "build:p": "webpack --mode production --progress",
+    "build:p": "webpack --env.production",
     "lint": "tslint -p . --type-check -t stylish",
     "g:log": "git log --pretty=format:\"%h - %an, %ar : %s\"",
     "g:commit": "git add . & git commit -m ",
     "g:push": "git pull & git push origin master",
     "g:pull": "git pull origin master",
     "g:force": "git add . & git commit -am \"updates\" & git pull & git push",
-    "dev": "webpack-dev-server --mode development --env.development",
+    "dev": "webpack-dev-server --env.development",
     "p:i": "rm -rf node_modules/ yarn.lock yarn-error.log && yarn install"
   },
   "dependencies": {
