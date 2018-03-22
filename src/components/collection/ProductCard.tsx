@@ -1,6 +1,7 @@
 import * as React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import connect from "react-redux/es/connect/connect";
+// import { Link } from "react-router-dom";
+import Link from "react-router-dom/es/Link";
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 import { addCartItem, addFavoriteItem, removeFavoriteItem } from "../redux/actionCreators";

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import connect from "react-redux/es/connect/connect";
 
 // Import component to make layout
 import Banner from "./collection/Banner";

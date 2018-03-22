@@ -1,8 +1,10 @@
 const { join } = require("path");
 const webpack = require("webpack");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // Initial configurations
 const pageTitle = "EC - Site";
@@ -15,20 +17,10 @@ const PATH = {
 const developmentPort = 8080;
 
 module.exports = (env = {}) => {
-  console.log(env);
+  console.log(env, process.env.NODE_ENV);
   const devtool = !env.production && "source-map";
   const stats = { colors: true, reasons: true, assets: true, errorDetails: true };
   const extensions = [".ts", ".tsx", ".css", ".scss", ".js", ".json"];
-  const prodSassLoader = ExtractTextPlugin.extract({
-    fallback: "style-loader",
-    use: [
-      {
-        loader: "css-loader",
-        options: { sourceMap: devtool === "source-map", importLoaders: 1 },
-      },
-      "sass-loader",
-    ],
-  });
   // Typescript compiling configurations
   const tsBundleConfig = {
     context: PATH.root,
@@ -70,22 +62,19 @@ module.exports = (env = {}) => {
         {
           test: /\.s?css$/,
           include: join(PATH.src, "css"),
-          use: env.production
-            ? prodSassLoader
-            : [
-                "style-loader",
-                {
-                  loader: "css-loader",
-                  options: { sourceMap: devtool === "source-map", importLoaders: 1 },
-                },
-                "sass-loader",
-              ],
+          use: [
+            env.production ? MiniCssExtractPlugin.loader : "style-loader",
+            {
+              loader: "css-loader",
+              options: { sourceMap: devtool === "source-map", importLoaders: 1 },
+            },
+            "sass-loader",
+          ],
         },
       ],
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NamedModulesPlugin(),
       new HtmlWebpackPlugin({
         title: `${pageTitle} - Development`,
         filename: "index.html",
@@ -115,26 +104,43 @@ module.exports = (env = {}) => {
     tsBundleConfig.optimization = {
       splitChunks: {
         cacheGroups: {
-          commons: {
+          manifest: {
             test: /[\\/]node_modules[\\/]/,
             name: "manifest",
-            chunks: "all"
+            chunks: "all",
           },
         },
       },
     };
     tsBundleConfig.plugins = [
+      new BundleAnalyzerPlugin(),
+      new webpack.DefinePlugin({
+        "process.env.NODE_ENV": '"production"',
+      }),
       new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.css$/g,
         cssProcessor: require("cssnano"),
         cssProcessorOptions: { discardComments: { removeAll: true } },
         canPrint: true,
       }),
-      new ExtractTextPlugin({ filename: "assets/css/bundle.css", allChunks: true }),
+      new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: "assets/css/[name].css",
+        chunkFilename: "assets/css/[name].[id].css",
+      }),
       new HtmlWebpackPlugin({
         title: `${pageTitle}`,
         filename: "index.html",
         template: join(__dirname, "src/template.ejs"),
+        minify: {
+          removeAttributeQuotes: true,
+          collapseWhitespace: true,
+          html5: true,
+          minifyCSS: true,
+          removeComments: true,
+          removeEmptyAttributes: true,
+        },
       }),
     ];
   }

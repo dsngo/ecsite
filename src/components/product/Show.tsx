@@ -1,6 +1,6 @@
 import * as React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import connect from "react-redux/es/connect/connect";
+import Link from "react-router-dom/es/Link";
 // Import component to make layout
 import Banner from "../collection/Banner";
 import Breadcrumbs from "../collection/Breadcrumbs";

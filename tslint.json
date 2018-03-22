@@ -8,7 +8,8 @@
     "no-var-keyword": false,
     "ter-indent": [false, 2, { "SwitchCase": true }],
     "ter-arrow-parens": false,
-    "variable-name": [true, "check-format", "allow-pascal-case", "ban-keywords"]
+    "variable-name": [true, "check-format", "allow-pascal-case", "ban-keywords"],
+    "no-this-assignment": [true, {"allowed-names": ["^self$"], "allow-destructuring": true}]
     // "ordered-imports": [
     //   true,
     //   {

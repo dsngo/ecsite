@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import Link from "react-router-dom/es/Link";
+import connect from "react-redux/es/connect/connect";
 import TextField from "material-ui/TextField";
 import AppBar from "material-ui/AppBar";
 import Paper from "material-ui/Paper";

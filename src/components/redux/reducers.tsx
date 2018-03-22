@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import combineReducers from "redux/es/combineReducers";
 
 // const DEFAULT_STATE = {
 //   isLogin: boolean,

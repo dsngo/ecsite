@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "prebuild:p": "find app/* ! \\( -name assets -o -name img -o -name \"*.png\" \\) -exec rm -rf {} +",
-    "build:p": "webpack --env.production",
+    "build:p": "SET NODE_ENV=production&&webpack --env.production --progress --colors",
     "lint": "tslint -p . --type-check -t stylish",
     "g:log": "git log --pretty=format:\"%h - %an, %ar : %s\"",
     "g:commit": "git add . & git commit -m ",
@@ -18,17 +18,12 @@
   "dependencies": {
     "axios": "^0.18.0",
     "material-ui": "^0.20.0",
-    "preact": "^8.2.7",
-    "preact-compat": "^3.18.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-responsive-carousel": "^3.1.33",
     "react-router-dom": "^4.2.2",
     "redux-thunk": "^2.2.0"
-  },
-  "resolutions": {
-    "@types/tapable": "1.0.0"
   },
   "devDependencies": {
     "@types/material-ui": "^0.21.1",
@@ -37,16 +32,18 @@
     "@types/react-dom": "^16.0.3",
     "@types/react-hot-loader": "^3.0.5",
     "@types/react-redux": "^5.0.12",
-    "@types/react-router-dom": "^4.2.1",
-    "@types/tapable": "1.0.0",
+    "@types/react-router-dom": "^4.2.5",
     "@types/webpack": "^4.1.1",
     "@types/webpack-dev-server": "^2.9.2",
     "@types/webpack-env": "^1.13.2",
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "html-webpack-plugin": "^3.0.6",
+    "html-webpack-plugin": "^3.0.7",
+    "mini-css-extract-plugin": "^0.2.0",
     "node-sass": "^4.7.2",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
+    "preact": "^8.2.7",
+    "preact-compat": "^3.18.0",
     "react-hot-loader": "^4.0.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
@@ -57,6 +54,7 @@
     "tslint-config-prettier": "^1.10.0",
     "typescript": "^2.7.2",
     "webpack": "^4.1.1",
+    "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cli": "^2.0.12",
     "webpack-dev-server": "^3.1.1"
   }

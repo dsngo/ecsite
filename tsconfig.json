@@ -6,11 +6,11 @@
     "./src"
   ],
   "compilerOptions":{
-    "target": "es5",
+    "target": "es6",
 		"lib": [
-      "esnext",
+      "es7",
 			"dom",
-			"scripthost"
+			// "scripthost"
     ],
     // "module": "commonjs", /* webpack has built-in module-loader, this option can be turned off. */
     "moduleResolution": "node",
@@ -18,9 +18,8 @@
     "strict": true,
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
-    "importHelpers": true,
     "noEmitHelpers": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     // "outDir": "./js" 
     // "outFile": "./app/bundle.js"

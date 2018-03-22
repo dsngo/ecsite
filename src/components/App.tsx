@@ -1,9 +1,12 @@
 import * as React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import FoF from "./FoF";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Router from "react-router-dom/es/BrowserRouter";
+import Route from "react-router-dom/es/Route";
+import Switch from "react-router-dom/es/Switch";
+import Provider from "react-redux/es/components/Provider";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import { store } from "./redux/store";
+import FoF from "./FoF";
 import Navbar from "./Navbar";
 import Landing from "./Landing";
 import Footer from "./Footer";

@@ -1,6 +1,6 @@
 import * as React from "react";
 // import { clearSubmitStatus } from "./redux/actionCreators";
-import { connect } from "react-redux";
+import connect from "react-redux/es/connect/connect";
 
 import Dialog from "material-ui/Dialog";
 import FlatButton from "material-ui/FlatButton";

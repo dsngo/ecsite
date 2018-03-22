@@ -1,6 +1,6 @@
 // import * as React from "react";
-// import { Link } from "react-router-dom";
-// import { connect } from "react-redux";
+// import Link from "react-router-dom/es/Link";
+// import connect from "react-redux/es/connect/connect";
 // import { grey50, grey800, redA700, red900, lightBlueA700, lightBlue900, greenA700, green900 } from "material-ui/styles/colors";
 // import RaisedButton from "material-ui/RaisedButton";
 // import { createNewUser, logUserIn, } from "../redux/actionCreators";
