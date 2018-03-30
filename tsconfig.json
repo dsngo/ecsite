@@ -12,7 +12,7 @@
 			"dom",
 			// "scripthost"
     ],
-    // "module": "commonjs", /* webpack has built-in module-loader, this option can be turned off. */
+    "module": "esnext", /* webpack has built-in module-loader, this option can be turned off. */
     "moduleResolution": "node",
     "downlevelIteration": true,
     "strict": true,
@@ -50,8 +50,8 @@
     // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
     
     /* Additional Checks */
-    // "noUnusedLocals": true,                /* Report errors on unused locals. */
-    // "noUnusedParameters": true,            /* Report errors on unused parameters. */
+    "noUnusedLocals": true,                /* Report errors on unused locals. */
+    "noUnusedParameters": true,            /* Report errors on unused parameters. */
     // "noImplicitReturns": true,             /* Report error when not all code paths in function return a value. */
     // "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
     

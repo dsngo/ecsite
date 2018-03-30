@@ -1,6 +1,6 @@
 const { join } = require("path");
 const webpack = require("webpack");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+// const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
@@ -8,10 +8,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // Initial configurations
 const pageTitle = "EC - Site";
+// PATH configurations
 const PATH = {
   app: join(__dirname, "app"),
   src: join(__dirname, "src"),
+  css: join(__dirname, "src/css"),
   root: join(__dirname, ""),
+  template: join(__dirname, "src/template.ejs"),
   nodeModules: join(__dirname, "node_modules"),
 };
 const developmentPort = 8080;
@@ -28,13 +31,13 @@ module.exports = (env = {}) => {
       main: ["./src/index", "./src/css/index"],
     },
     mode: "development",
+    stats,
     output: {
       path: PATH.app,
       filename: "assets/js/[name].bundle.js",
       publicPath: "/",
       pathinfo: true,
     },
-    stats,
     devServer: {
       hot: true,
       open: true,
@@ -43,7 +46,7 @@ module.exports = (env = {}) => {
       publicPath: "/",
       compress: true,
       historyApiFallback: { disableDotRule: true },
-      contentBase: join(__dirname, "app"),
+      contentBase: PATH.app,
       // https: true,
     },
     resolve: { extensions },
@@ -61,12 +64,12 @@ module.exports = (env = {}) => {
         },
         {
           test: /\.s?css$/,
-          include: join(PATH.src, "css"),
+          include: PATH.css,
           use: [
             env.production ? MiniCssExtractPlugin.loader : "style-loader",
             {
               loader: "css-loader",
-              options: { sourceMap: devtool === "source-map", importLoaders: 1 },
+              options: { sourceMap: devtool === "source-map", importLoaders: 1, minimize: !!env.production },
             },
             "sass-loader",
           ],
@@ -78,7 +81,7 @@ module.exports = (env = {}) => {
       new HtmlWebpackPlugin({
         title: `${pageTitle} - Development`,
         filename: "index.html",
-        template: join(__dirname, "src/template.ejs"),
+        template: PATH.template,
       }),
     ],
   };
@@ -89,8 +92,8 @@ module.exports = (env = {}) => {
   if (env.production) {
     delete tsBundleConfig.devServer;
     delete tsBundleConfig.output.pathinfo;
-    tsBundleConfig.watch = false;
     tsBundleConfig.mode = "production";
+    tsBundleConfig.watch = false;
     tsBundleConfig.output = {
       path: PATH.app,
       filename: "assets/js/[name].bundle.js",
@@ -117,12 +120,6 @@ module.exports = (env = {}) => {
       new webpack.DefinePlugin({
         "process.env.NODE_ENV": '"production"',
       }),
-      new OptimizeCssAssetsPlugin({
-        assetNameRegExp: /\.css$/g,
-        cssProcessor: require("cssnano"),
-        cssProcessorOptions: { discardComments: { removeAll: true } },
-        canPrint: true,
-      }),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
@@ -132,7 +129,7 @@ module.exports = (env = {}) => {
       new HtmlWebpackPlugin({
         title: `${pageTitle}`,
         filename: "index.html",
-        template: join(__dirname, "src/template.ejs"),
+        template: PATH.template,
         minify: {
           removeAttributeQuotes: true,
           collapseWhitespace: true,
